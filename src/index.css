@@ -1,0 +1,17 @@
+:root {
+  --main-color: #fff;
+  --large-font: 30px;
+
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
