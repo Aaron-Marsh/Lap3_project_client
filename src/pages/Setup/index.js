@@ -36,14 +36,24 @@ function Setup() {
     e.preventDefault()
   }
 
+  const difficultyOptions = [
+    {id: 'easy', name:"Easy"},
+    {id: 'medium', name:"Medium"},
+    {id: 'hard', name:"Hard"}
+  ]
+
+  const typeOptions = [
+    {id: "multiple", name: "multiple choice"},
+    {id: "boolean", name: "True/False"}
+  ]
 
 
 
   return (
     <form onSubmit={handleSubmit}>
       <CreateQuiz options={response.trivia_categories}label="Catergory"/>
-      <CreateQuiz label="Difficulty"/>
-      <CreateQuiz label="Type"/>
+      <CreateQuiz options={difficultyOptions} label="Difficulty"/>
+      <CreateQuiz options={typeOptions} label="Type"/>
       <NumberOfQuestions/>
       <Box mt={3} width="50%">
         <Button  variant='contained' type='submit' >
