@@ -1,11 +1,11 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-axios.defaults.baseURL = 'https://opentdb.com';
+axios.defaults.baseURL = "https://opentdb.com";
 
 const useAxios = ({ url }) => {
   const [response, setResponse] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const useAxios = ({ url }) => {
     fetchData();
   }, [url]);
 
-  return <div>useAxios</div>;
+  return { response, error, loading };
 };
 
 export default useAxios;
