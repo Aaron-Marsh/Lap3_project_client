@@ -7,7 +7,7 @@ const CreateQuiz = (props) => {
   const [value, setValue] = useState('');
 
   const handleChange = (e) => {
-    setValue(e.target.value)
+    setValue(e.target.value);
   };
 
   return (
