@@ -1,17 +1,13 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import Setup from '../Setup';
 import styles from './index.module.css'
 
 function Welcome() {
-  let navigate = useNavigate();
   const routeChange = () => {
-    let path =  window.location.href='/setup';
-    navigate(path);
+    window.location.href='/setup';
   }
   return (
     <>
-      <h2>Welcome Page</h2>
+      <h2 aria-label='heading'>Welcome Page</h2>
         <div className='container'>
           
           <div className='text'>
