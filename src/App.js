@@ -1,6 +1,12 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
+import Welcome from './pages/Welcome'
+import Setup from './pages/Setup'
+import Quiz from './pages/Quiz'
+import Leaderboards from './pages/Leaderboards'
+
+
 function App() {
   return (
     <>
