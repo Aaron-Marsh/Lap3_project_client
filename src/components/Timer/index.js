@@ -26,7 +26,7 @@ function Timer() {
           duration={10}
           colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colorsTime={[10, 6, 3, 0]}
-          onComplete={() => ({ shouldRepeat: true, delay: 4 })}
+          onComplete={() => ({ shouldRepeat: true, delay: 3 })}
         >
           {renderTime}
         </CountdownCircleTimer>

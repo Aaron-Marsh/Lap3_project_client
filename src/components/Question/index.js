@@ -29,10 +29,10 @@ const Question = () => {
         useEffect(() => {
             const countdown = () => {
                 setTimer(t => {
-                    if (t === 0) {
+                    if (t === 1) {
                         endQuestion()
                         return t-1
-                    } else if (t === -3) {
+                    } else if (t === -2) {
                         newQuestion()
                         return interval
                     } else {
@@ -64,11 +64,14 @@ const Question = () => {
                 } else {
                     setScore(0)
                 }
-                if (!document.getElementById('message').textContent) {
+                if (document.getElementById('message').textContent === '') {
                     document.getElementById('message').textContent = 'Too Slow!'
+                    document.getElementById('question-score').textContent = `+0`
+                    document.getElementById('question-score').style.color = 'red'
                 }
                 document.getElementById('question').style.display = 'none'
                 document.getElementById('all-options').style.display = 'none'
+            
             }
             
             const newQuestion = () => {
@@ -102,7 +105,6 @@ const Question = () => {
             } else {
                 console.log('incorrect')
                 document.getElementById('question-score').textContent = `+0`
-                setScore(0);
                 document.getElementById('question-score').style.color = 'red'
                 document.getElementById('message').textContent = `Incorrect! The answer was ${questions.correct_answer}`
                 setScore(0);
