@@ -1,4 +1,5 @@
 import { Welcome } from '../index';
+import { Setup } from '../index';
 import { render, screen } from '@testing-library/react';
 
 describe('Welcome', () => {
@@ -12,7 +13,16 @@ describe('Welcome', () => {
     });
 
     test('it renders a button', () => {
-        let button = screen.getByRole('setup');
-        expect(button).toBeInTheDocument();;
+        let button = screen.getByRole('setup','help');
+        expect(button).toBeInTheDocument();
+    });
+
+    test('it should go to the setup page', () => {
+    Object.defineProperty(window, 'location', {
+        get() {
+        return { href: '/setup' };
+        },
+    });
+    render(<Setup />);
     });
 })
