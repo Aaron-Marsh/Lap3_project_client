@@ -10,4 +10,9 @@ describe('Welcome', () => {
         
         expect(heading.textContent).toBe('Welcome Page');
     });
+
+    test('it renders a button', () => {
+        let button = screen.getByRole('setup');
+        expect(button).toBeInTheDocument();;
+    });
 })
