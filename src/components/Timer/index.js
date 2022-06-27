@@ -5,14 +5,14 @@ import "./styles.css";
 
 const renderTime = ({ remainingTime }) => {
   if (remainingTime === 0) {
-    return <div className="timer">Too late...</div>;
+    return <div className="timer">Get Ready</div>;
   }
   
   return (
     <div className="timer">
-      <div className="text">Next Question in</div>
+      <div className="text">Only</div>
       <div className="value">{remainingTime}</div>
-      <div className="text">seconds</div>
+      <div className="text">seconds left</div>
     </div>
   );
 };
