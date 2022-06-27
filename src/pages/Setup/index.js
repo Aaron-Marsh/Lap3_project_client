@@ -2,12 +2,20 @@ import React from 'react';
 import CreateQuiz from '../../components/CreateQuiz/index';
 import NumberOfQuestions from '../../components/NumberOfQuestions';
 import { Box } from '@mui/system'
-import { Button } from '@mui/material'
+import { Button, CircularProgress } from '@mui/material'
 import useAxios from '../../hooks/useAxios'
 
 function Setup() {
   const { response, error, loading } = useAxios({ url: "/api_category.php" });
-  console.log(response)
+  // console.log(response)
+
+  if(loading) {
+    return (
+      <Box mt={20}>
+        <CircularProgress/>
+      </Box>
+    )
+  }
 
 
 
