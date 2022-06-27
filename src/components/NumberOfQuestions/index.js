@@ -8,7 +8,7 @@ const NumberOfQuestions = () => {
 
 
   return (
-    <Box mt={3} width="100%">
+    <Box mt={3} width="50%">
     <FormControl fullWidth size="small">
       <TextField
         onChange={handleChange}
