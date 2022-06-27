@@ -74,7 +74,7 @@ const Question = () => {
                     
                     <>
                 
-        <h2>Questions</h2>
+        <h2 aria-label="question-title">Questions</h2>
 
         {/* <Timer /> */}
 
