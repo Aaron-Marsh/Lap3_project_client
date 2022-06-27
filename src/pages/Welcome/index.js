@@ -20,7 +20,7 @@ function Welcome() {
           <div className='text'>
             <p>Welcome to About Time. The quiz game you can play on your own or with friends. If you want to jump straight into setting up a game click the 'Got it!' button below.</p>
 
-            <p>If its your first time here or you need a refresher on how to play then click the 'Help' button below.</p>
+            <p>If it's your first time here or you need a refresher on how to play then click the 'Help' button below.</p>
           </div>
 
           <div className='buttons'>
@@ -30,10 +30,17 @@ function Welcome() {
               <Popup open={open} closeOnDocumentClick onClose={closeModal}>
                 <div className="modal">
                   <a className="close" onClick={closeModal}>
-                  &times;
+                  
                   </a>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magni
-                    omnis delectus nemo, maxime molestiae dolorem numquam mollitia, voluptate ea, accusamus excepturi deleniti ratione sapiente! Laudantium, aperia doloribus. Odit, aut.
+                    <h3>Need a hand? 🕒</h3>
+
+                    <h4>Starting a game</h4>
+                    <p>Enter your username then select how many players, how hard you would like the quiz to be and the topic.</p>
+
+                    <h4>Playing the game</h4>
+                    <p>The question will be displayed on your screen, at which point you will be given 10 seconds to choose an answer. Once you choose an answer the tile will either flash green for correct or red for incorrect.
+                    The amount of points you are awarded for a correct answer is calculated by our very clever algorithm which takes the time left and multiplies by a secret value.</p>
+
                 </div>
               </Popup>
 
