@@ -10,7 +10,7 @@ import Leaderboards from './pages/Leaderboards'
 function App() {
   return (
     <>
-      <h1 aria-label="main-title">Hello</h1>
+      <h1 aria-label="main-title">This is the main title in the App.js folder</h1>
       <main>
                 <Routes>
                     <Route path="/" element={
