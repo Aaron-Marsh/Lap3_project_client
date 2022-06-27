@@ -1,4 +1,10 @@
-const initState = {  };
+const initState = { 
+    question_category: "",
+    question_difficulty: "",
+    question_type: "",
+    amount_of_question: 10,
+    score: 0
+ };
 
 const Reducer = (state=initState, action) => {
     switch(action.type){
