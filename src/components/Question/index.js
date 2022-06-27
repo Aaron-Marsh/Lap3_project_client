@@ -95,10 +95,10 @@ const Question = () => {
             if (e.target.value === questions.correct_answer) {
                 let elapsedTime = Date.now() - startTime;
                 console.log('correct')
-                document.getElementById('question-score').textContent = `+${elapsedTime}`
+                document.getElementById('question-score').textContent = `+${10000-elapsedTime}`
                 document.getElementById('question-score').style.color = 'green'
                 document.getElementById('message').textContent = 'Correct!'
-                setScore(elapsedTime);
+                setScore(10000-elapsedTime);
             } else {
                 console.log('incorrect')
                 document.getElementById('question-score').textContent = `+0`
