@@ -1,4 +1,4 @@
-import { Welcome } from './index';
+import { Welcome } from '../index';
 import { render, screen } from '@testing-library/react';
 
 describe('Welcome', () => {
@@ -8,6 +8,6 @@ describe('Welcome', () => {
         const heading = screen.getByRole('heading', {
             name:'heading' })
         
-        expect(heading.textContent).toBe('Sunrise, Sunset');
+        expect(heading.textContent).toBe('Welcome Page');
     });
 })
