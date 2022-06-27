@@ -3,11 +3,11 @@ import CreateQuiz from '../../components/CreateQuiz/index';
 
 function Setup() {
   return (
-    <form>
-      <CreateQuiz/>
-    </form>
+    // <form>
+    //   <CreateQuiz/>
+    // </form>
 
-
+    <h2></h2>
   );
 }
 

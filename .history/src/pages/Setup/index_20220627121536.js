@@ -1,13 +1,11 @@
 import React from 'react';
-import CreateQuiz from '../../components/CreateQuiz/index';
+import Form from '../../components/Form/index';
 
 function Setup() {
   return (
     <form>
-      <CreateQuiz/>
+      <Form/
     </form>
-
-
   );
 }
 

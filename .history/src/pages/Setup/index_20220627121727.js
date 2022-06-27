@@ -6,8 +6,6 @@ function Setup() {
     <form>
       <CreateQuiz/>
     </form>
-
-
   );
 }
 
