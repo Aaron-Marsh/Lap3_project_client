@@ -2,7 +2,7 @@ import React from 'react';
 import CreateQuiz from '../../components/CreateQuiz/index';
 import NumberOfQuestions from '../../components/NumberOfQuestions';
 import { Box } from '@mui/system'
-import { Button, CircularProgress } from '@mui/material'
+import { Button, CircularProgress, Typography } from '@mui/material'
 import useAxios from '../../hooks/useAxios'
 
 function Setup() {
@@ -18,6 +18,19 @@ function Setup() {
   }
 
 
+  if(error) {
+    return (
+
+        <Typography variant='h6' my={20} color="red">
+          Something went wrong
+        </Typography>
+     
+    )
+  }
+
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -28,7 +41,7 @@ function Setup() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CreateQuiz label="Catergory"/>
+      <CreateQuiz options={response.trivia_categories}label="Catergory"/>
       <CreateQuiz label="Difficulty"/>
       <CreateQuiz label="Type"/>
       <NumberOfQuestions/>
