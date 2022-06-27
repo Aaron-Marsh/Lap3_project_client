@@ -12,7 +12,7 @@ const CreateQuiz = (props) => {
   return (
     <div>
     
-    <Box mt={3} width="100%">
+    <Box mt={3} width="50%">
       <FormControl size="small" fullWidth>
         <InputLabel>{label}</InputLabel>
         <Select value={value} label={label} onChange={handleChange}>

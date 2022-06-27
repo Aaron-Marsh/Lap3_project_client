@@ -4,7 +4,9 @@ import CreateQuiz from '../../components/CreateQuiz/index';
 function Setup() {
   return (
     <form>
-      <CreateQuiz/>
+      <CreateQuiz label="Catergory"/>
+      <CreateQuiz label="Difficulty"/>
+      <CreateQuiz label="Type"/>
     </form>
 
 
