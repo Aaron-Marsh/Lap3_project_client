@@ -52,7 +52,7 @@ export default function PodiumStep({ podium, winner }) {
             borderTopRightRadius: '.5rem',
             backgroundColor: '#26547C',
             marginBottom: -1,
-            filter: `opacity(${0.25 + offset / podium.length})`,
+            filter: `opacity(${0.25 + offset / (podium.length+3)})`,
             fontFamily: 'sans-serif'
           }}
           initial="hidden"
@@ -99,7 +99,7 @@ export default function PodiumStep({ podium, winner }) {
             borderTopRightRadius: '.5rem',
             backgroundColor: '#26547C',
             marginBottom: -1,
-            filter: `opacity(${0.25 + offset / podium.length})`,
+            filter: `opacity(${0.25 + offset / (podium.length+3)})`,
             fontFamily: 'sans-serif'
           }}
           initial="hidden"
