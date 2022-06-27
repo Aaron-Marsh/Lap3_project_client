@@ -1,5 +1,6 @@
 import react, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client'
+import useAxios from '../../hooks/useAxios';
 const socket = io('http://localhost:4000');
 
 io({query: { name: 'Sally'}})
@@ -14,8 +15,26 @@ socket.on('ready', (data) => {
     
     
     const Question = () => {
+        let apiUrl = `/api.php?amount=10`;
+        const {response, loading} = useAxios
+({url: apiUrl})
+console.log(response)
+
+
+
+
+
+
+
         const [score, setScore] = useState(0);
         const [questions, setQuestions] = useState(questionData)
+
+
+
+
+
+
+
 
 
         useEffect(() => {
