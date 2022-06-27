@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import Welcome from './pages/Welcome'
-import Setup from './pages/Setup'
+// import Setup from './pages/Setup'
 import Quiz from './pages/Quiz'
 import Leaderboards from './pages/Leaderboards'
 
@@ -16,9 +16,9 @@ function App() {
                     <Route path="/" element={
                             <Welcome />
                     }/>
-                    <Route path="/setup" element={
+                    {/* <Route path="/setup" element={
                             <Setup />
-                    }/>
+                    }/> */}
                     <Route path="/quiz" element={
                             <Quiz />
                     }/>
