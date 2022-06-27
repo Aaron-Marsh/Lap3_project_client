@@ -5,7 +5,7 @@ const socket = io('http://localhost:4000');
 
 io({query: { name: 'Sally'}})
 
-let questionData={category:'blank', incorrect_answers:[]};
+let questionData={category:'blank', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'};
 
 
 socket.on('ready', (data) => {
@@ -16,30 +16,50 @@ socket.on('ready', (data) => {
 
 const Question = () => {
         const [score, setScore] = useState(0);
-        const [questions, setQuestions] = useState(questionData)
+        const [questions, setQuestions] = useState('')
         const [options, setOptions] = useState([]);
         const [startTime, setStartTime] = useState(0)
 
         socket.emit('start', {category: 2, difficulty: 'easy', questionsAmount: 12})
 
-          
-        useEffect(() => {
-            setQuestions(questionData)
-            let options = questionData.incorrect_answers
-            options.push(questionData.correct_answer)
-            options = options.sort(() => Math.random() - 0.5)
-            setOptions(options)
-            setStartTime(Date.now())
-
-        },[questionData])
-        
-        const newQuestion = (e) => {
-            e.preventDefault(e)
-            socket.emit('retrieveQuestion', {questionScore: score})
-            console.log(questionData)
-            setQuestions(questionData)
+        // useEffect(() => {
+            //     setQuestions(questionData)
+            //     let options = questionData.incorrect_answers
+            //     options.push(questionData.correct_answer)
+            //     options = options.sort(() => Math.random() - 0.5)
+            //     setOptions(options)
+            //     setStartTime(Date.now())
+            
+            // },[questionData])
+            
+            const newQuestion = (e) => {
+                e.preventDefault(e)
+                socket.emit('retrieveQuestion', {questionScore: score})
+                console.log(questionData)
+                setQuestions(questionData)
+                
+                
+                let options = questionData.incorrect_answers
+                options.push(questionData.correct_answer)
+                options = options.sort(() => Math.random() - 0.5)
+                setOptions(options)
+                
+                setStartTime(Date.now)
+                
+                
+            }
+            
+        const answerQuestion = e => {
+            e.preventDefault()
+            if (e.target.value === questions.correct_answer) {
+                console.log('correct')
+            } else {
+                console.log('incorrect')
+            }
             let elapsedTime = Date.now() - startTime;
-            console.log(elapsedTime)
+            console.log(elapsedTime);
+            setScore(elapsedTime);
+
         }
         
       
@@ -59,14 +79,14 @@ const Question = () => {
         {/* <Timer /> */}
 
         <h3>{questions.question}</h3>
-        <ul>
-            <li>{options[0]}</li>
-            <li>{options[1]}</li>
-            <li>{options[2]}</li>
-            <li>{options[3]}</li>
-        </ul>
+        <form>
+            <input type="submit" onClick={answerQuestion} value={options[0] || 'option'}></input>
+            <input type="submit" onClick={answerQuestion} value={options[1] || 'option'}></input>
+            <input type="submit" onClick={answerQuestion} value={options[2] || 'option'}></input>
+            <input type="submit" onClick={answerQuestion} value={options[3] || 'option'}></input>
+        </form>
         
-        <button onClick={newQuestion}>hello</button>
+        <button onClick={newQuestion}>New Question</button>
    
         </>
     )
