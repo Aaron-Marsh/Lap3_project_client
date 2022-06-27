@@ -10,7 +10,7 @@ const renderTime = ({ remainingTime }) => {
   
   return (
     <div className="timer">
-      <div className="text">Remaining</div>
+      <div className="text">Next Question in</div>
       <div className="value">{remainingTime}</div>
       <div className="text">seconds</div>
     </div>
@@ -26,7 +26,7 @@ function Timer() {
           duration={10}
           colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colorsTime={[10, 6, 3, 0]}
-          onComplete={() => ({ shouldRepeat: true, delay: 1 })}
+          onComplete={() => ({ shouldRepeat: true, delay: 3 })}
         >
           {renderTime}
         </CountdownCircleTimer>
