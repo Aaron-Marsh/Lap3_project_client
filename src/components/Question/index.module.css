@@ -2,5 +2,15 @@ body {
     text-align: center;
 }
 h2 {
-    
+    margin-bottom: 2rem;
+}
+
+h3 {
+    margin: 2rem;
+}
+
+input {
+    min-width: 12rem;
+    min-height: 2rem;
+    margin: 1rem;
 }
