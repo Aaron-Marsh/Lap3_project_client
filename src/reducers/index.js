@@ -3,7 +3,7 @@ const initState = {
     question_difficulty: "",
     question_type: "",
     amount_of_question: 10,
-    score: 0
+    intScore: 0
  };
 
 const Reducer = (state=initState, action) => {
