@@ -5,7 +5,6 @@ function Setup() {
     <>
         <h2>Start New Quizz</h2>
         
-        
     </>
   )
 }
