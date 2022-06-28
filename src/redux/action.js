@@ -4,6 +4,7 @@ import {
   CHANGE_AMOUNT,
   CHANGE_TYPE,
   CHANGE_SCORE,
+  CHANGE_USERNAME,
 } from "./actionType";
 
 export const handleCategoryChange = (payload) => ({
@@ -28,5 +29,10 @@ export const handleAmountChange = (payload) => ({
 
 export const handleScoreChange = (payload) => ({
   type: CHANGE_SCORE,
+  payload,
+});
+
+export const handleUsernameChange = (payload) => ({
+  type: CHANGE_USERNAME,
   payload,
 });
