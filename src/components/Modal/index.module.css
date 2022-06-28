@@ -1,6 +1,6 @@
 .modalBackground {
-    width: 70vw;
-    height: 30vh;
+    width: 80vw;
+    height: 10vh;
     background-color: var(--main-background);
     position: fixed;
     display: flex;
@@ -9,8 +9,8 @@
 }
 
 .modalContainer {
-    width: 500px;
-    height: 400px;
+    width: 100vw;
+    height: 80vh;
     border-radius: 12px;
     background-color: var(--main-background);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -22,7 +22,7 @@
 .modalContainer .title {
     display: inline-block;
     text-align: center;
-    margin-top: 10px;
+    display: top;
 }
 
 .titleCloseBtn button {
@@ -35,11 +35,21 @@
 
 .modalContainer .body {
     flex: 50%;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     font-size: 1.7rem;
-    text-align: center;
+    text-align: left;
+    font-size: 20px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+h4 {
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 .modalContainer .footer {
@@ -52,7 +62,7 @@
 .modalContainer .footer button {
     width: 150px;
     height: 45px;
-    margin: 10px;
+    margin-top: 5px;
     border: none;
     background-color: var(--main-text);
     color: var(--main-background);
