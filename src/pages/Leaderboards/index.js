@@ -1,12 +1,18 @@
 import React from 'react'
 import { Leaderboard } from '../../components'
+import styles from './index.module.css'
 
-function Leaderboards() { 
+
+function Leaderboards() {
   return (
-    <div style={{ width:'65rem', marginLeft:'20vw', border:'1px solid' }}>
-      <h1>Leaderboards</h1>
-        <Leaderboard/>
-    </div>
+    <>
+      <div className={styles.container}>
+        <div className={styles.frame}>
+          <h1 className={styles.intro}>Top 10 Leaderboard</h1>
+          <Leaderboard />
+        </div>
+      </div>
+    </>
   )
 }
 

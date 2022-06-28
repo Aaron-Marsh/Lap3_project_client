@@ -33,7 +33,7 @@ export default function Leaderboard() {
   }, [])
 
   return (
-    <div className="leaderboard">
+    <div className="leaderboard" style={{width:'100%'}}>
       <Podium winners={leaderboard} />
     </div>
   )
