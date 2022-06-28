@@ -1,4 +1,8 @@
+
+import { useSelect } from '@mui/base';
 import react, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
 import './index.module.css'
 import { io } from 'socket.io-client'
@@ -18,6 +22,30 @@ socket.on('ready', (data) => {
 socket.emit('start', {category: 2, difficulty: 'easy', questionsAmount: 12})
 
 const Question = () => {
+    const {
+    question_category,
+    question_difficulty,
+    question_type,
+    questionsAmount,
+    intScore,
+  } = useSelector(state => state);
+  console.log(
+
+    question_difficulty,
+    question_category,
+    question_type,
+ 
+    // questionsAmount,
+    // intScore
+  );
+  
+    let apiUrl = `/api.php?amount=${questionsAmount}`;
+  
+  // const { response, loading } = useAxios({ url: apiUrl });
+  //  console.log(response);
+  
+  
+  
         const [score, setScore] = useState(0);
         const [questions, setQuestions] = useState('')
         const [options, setOptions] = useState([]);
