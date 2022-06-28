@@ -32,35 +32,7 @@ const Question = () => {
         socket.emit('start', {category: 0, difficulty: 'medium', questionsAmount: 12})
     },[]
     )
-    
-
-// Nasiima
-
-//     const {
-//     question_category,
-//     question_difficulty,
-//     question_type,
-//     questionsAmount,
-//     intScore,
-//   } = useSelector(state => state);
-//   console.log(
-
-//     question_difficulty,
-//     question_category,
-//     question_type,
- 
-//     // questionsAmount,
-//     // intScore
-//   );
-  
-//     let apiUrl = `/api.php?amount=${questionsAmount}`;
-  
-//   // const { response, loading } = useAxios({ url: apiUrl });
-//   //  console.log(response);
-  
-  // Nasiima
-
-
+   
   
         const [score, setScore] = useState(0);
         const [questions, setQuestions] = useState('')

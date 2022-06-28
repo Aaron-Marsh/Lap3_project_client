@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { Box } from '@mui/system';
 import { useDispatch } from 'react-redux';
+import './style.css'
+
 
 import {
   handleCategoryChange,
@@ -15,6 +17,7 @@ const CreateQuiz = (props) => {
   const [value, setValue] = useState('');
 
   const handleChange = (e) => {
+    e.preventDefault();
     setValue(e.target.value);
     switch (label) {
       case "Category":
@@ -33,7 +36,7 @@ const CreateQuiz = (props) => {
 
   return (
     <div>
-      <Box mt={3} width="50%">
+      <Box className="container" mt={3} width="50%">
         <FormControl size="small" fullWidth>
           <InputLabel>{label}</InputLabel>
           <Select value={value} label={label} onChange={handleChange}>
