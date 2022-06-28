@@ -24,7 +24,7 @@ export default function Leaderboard() {
       }
       setLeaderboard(data)
     } catch (error) {
-      console.error(error);
+      return(error);
     }
   }
 
