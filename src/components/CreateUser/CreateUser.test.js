@@ -15,6 +15,8 @@ describe('CreateUser', () => {
         expect(form).toBeInTheDocument();;
     });
 
+    
+
     test('it calls on getResult prop on form submission', () => {
         let locationInput = screen.getByLabelText('Location');
         userEvent.type(locationInput, "George{enter}")
