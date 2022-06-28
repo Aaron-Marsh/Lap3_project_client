@@ -1,0 +1,32 @@
+.container {
+    background: #fffcf9;
+    height: 100vh;
+    /* background: #CCCCCC; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.frame {
+    background-color: var(--main-background);
+    width: 80vw;
+    height: fit-content;
+    border: 26px #efefef solid;
+    border-color: var(--main-warning);
+    box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),
+    inset -10px 0px 8px rgba(163, 155, 139, 0.66),
+    inset 3px 0px 8px rgba(163, 155, 139, 0.12),
+    inset 0px -8px 1px rgba(218, 216, 214, 0.4),
+    -28px -6px 60px rgba(163, 155, 139, 0.46),
+    -16px -4px 16px rgba(163, 155, 139, 0.46),
+    0px -4px 1px rgba(163, 155, 139, 0.14);
+    border-radius: 1px;
+    padding: 20px;
+    
+}
+
+.intro {
+    font-size: 6vh;
+    font-family: var(--text-font);
+    color: var(--main-primary);
+    text-align: left;
+}
