@@ -1,12 +1,21 @@
 import React from 'react'
 import { Leaderboard } from '../../components'
+import styles from './index.module.css'
+import { useSelector } from 'react-redux';
 
-function Leaderboards() { 
+function Leaderboards() {
+  let username = useSelector(state => state.username)
+
   return (
-    <div style={{ width:'65rem', marginLeft:'20vw', border:'1px solid' }}>
-      <h1>Leaderboards</h1>
-        <Leaderboard/>
-    </div>
+    <>
+      <div className={styles.container}>
+        <div className={styles.frame}>
+          <h1 className={styles.intro}>Top 10 Leaderboard</h1>
+          <h2>Welcome {username}</h2> {/* proof of redux working from welcome, can be amended later */}
+          <Leaderboard />
+        </div>
+      </div>
+    </>
   )
 }
 

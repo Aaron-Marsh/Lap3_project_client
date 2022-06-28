@@ -2,12 +2,14 @@ import React from 'react';
 import CreateQuiz from '../../components/CreateQuiz/index';
 import NumberOfQuestions from '../../components/NumberOfQuestions';
 import { Box } from '@mui/system';
-import { Button, CircularProgress, Typography } from '@mui/material';
+import { Button, CircularProgress, Typography, TextField} from '@mui/material';
 import useAxios from '../../hooks/useAxios';
+import { useNavigate } from 'react-router-dom'
 
 function Setup() {
   const { response, error, loading } = useAxios({ url: '/api_category.php' });
   // console.log(response)
+  const navigate = useNavigate()
 
   if (loading) {
     return (
@@ -27,6 +29,8 @@ function Setup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let path =  window.location.href='/quiz';
+    navigate(path);
   };
 
   const difficultyOptions = [
@@ -35,6 +39,7 @@ function Setup() {
     { id: 'hard', name: 'Hard' },
   ];
 
+
   const typeOptions = [
     { id: 'multiple', name: 'multiple choice' },
     { id: 'boolean', name: 'True/False' },
@@ -42,6 +47,11 @@ function Setup() {
 
   return (
     <form onSubmit={handleSubmit}>
+   <TextField
+        variant="outlined"
+        label="Enter Username"
+        type="string"
+      />
       <CreateQuiz options={response.trivia_categories} label="Catergory" />
       <CreateQuiz options={difficultyOptions} label="Difficulty" />
       <CreateQuiz options={typeOptions} label="Type" />
