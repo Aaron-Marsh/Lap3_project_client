@@ -11,10 +11,10 @@ const socket = io('https://lap3quizzer.herokuapp.com');
 // https://lap3quizzer.herokuapp.com
 // 'http://localhost:4000/'
 
-io({query: { name: 'Sally'}})
+// io({query: { name: 'Sally'}})
 
 // fake data for first run
-let questionData={question:{category:'blank', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'}};
+let questionData={question:{category:'blank', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'}}; // questionchange
 
 
 socket.on('ready', (data) => {
@@ -22,14 +22,15 @@ socket.on('ready', (data) => {
     console.log(questionData);
 })
 socket.on('noQuestionsLeft', () => {
-    console.log('finished')
+    document.getElementById('quiz-section').style.display='none';
+    document.getElementById('end-message').style.display='';
 }
 )
-// socket.emit('start', {category: 0, difficulty: 'medium', questionsAmount: 12})
+// socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 10})
 
 const Question = () => {
     useEffect( () => {
-        socket.emit('start', {category: 0, difficulty: 'medium', questionsAmount: 12})
+        socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 5})
     },[]
     )
     
@@ -67,10 +68,9 @@ const Question = () => {
         const [options, setOptions] = useState([]);
         const [startTime, setStartTime] = useState(0);
         const [answered, setAnswered] = useState(false);
-        const [totalScore, setTotalScore] = useState(0)
+        const [questionNumber, setQuestionNumber] = useState(0)
 
-
-        const interval = 10
+        const interval = 5
         const [ timer, setTimer ] = useState(interval)
         useEffect(() => {
             const countdown = () => {
@@ -80,6 +80,7 @@ const Question = () => {
                         return t-1
                     } else if (t === -2) {
                         newQuestion()
+                        setQuestionNumber(prevState=>prevState+1)
                         return interval
                     } else {
                         return t - 1
@@ -90,7 +91,7 @@ const Question = () => {
             const int = setInterval(countdown, 1000);
 
             return () => clearInterval(int);
-        }, [questions]);
+        }, []);
 
         // useEffect(() => {
             //     setQuestions(questionData)
@@ -106,7 +107,7 @@ const Question = () => {
                 if (answered) {
                     setAnswered(false)
                 } else {
-                    // setScore(0)
+                    setScore(0)
                 }
                 if (document.getElementById('message').textContent === '') {
                     document.getElementById('message').textContent = 'Too Slow!'
@@ -120,13 +121,16 @@ const Question = () => {
             
             const newQuestion = () => {
                 // e.preventDefault()
-                socket.emit('retrieveQuestion', {questionScore: score})
+                
+                    socket.emit('retrieveQuestion', {questionScore: score})
+                
+            
                 // console.log(questionData)
-                setQuestions(questionData.question)
+                setQuestions(questionData.question) //questionchange
                 
                 
-                let options = questionData.question.incorrect_answers
-                options.push(questionData.question.correct_answer)
+                let options = questionData.question.incorrect_answers //questionchange
+                options.push(questionData.question.correct_answer) //questionchange
                 options = options.sort(() => Math.random() - 0.5)
                 setOptions(options)
                 document.getElementById('question').style.display = ''
@@ -136,27 +140,24 @@ const Question = () => {
 
                 setStartTime(Date.now)
             }
-            // let newTotalScore=0
         const answerQuestion = e => {
             e.preventDefault()
             if (e.target.value === questions.correct_answer) {
                 let elapsedTime = Date.now() - startTime;
+                let currentScore = 10000-elapsedTime;
                 console.log('correct')
-                document.getElementById('question-score').textContent = `+${10000-elapsedTime}`
+                document.getElementById('question-score').textContent = `+${currentScore}`
                 document.getElementById('question-score').style.color = 'green'
                 document.getElementById('message').textContent = 'Correct!'
-                // setScore(100);
+                setScore(currentScore);
             } else {
                 console.log('incorrect')
                 document.getElementById('question-score').textContent = `+0`
                 document.getElementById('question-score').style.color = 'red'
                 document.getElementById('message').textContent = `Incorrect! The answer was ${questions.correct_answer}`
-                // setScore(0);
+                setScore(0);
             }
             // console.log(elapsedTime);
-            console.log(score)
-            // newTotalScore = score;
-            // setTotalScore(newTotalScore)
             document.getElementById('all-options').style.display='none';
             document.getElementById('question').style.display='none';
             setAnswered(true);
@@ -170,15 +171,13 @@ const Question = () => {
                 //     })
                 // })
                 
-                return (
-                    
-                    <>
-                
+        return (
+        <>
+        <div id="quiz-section">
         <h2 aria-label="question-title">Let's Play!</h2>
-
         <Timer />
-
         <h3 id="question-score"></h3>
+        <p>question number {questionNumber}</p>
         <p id='message'>Get Ready, the Game is starting Soon!</p>
         <h3 id="question" style={{display:'none'}}>{questions.question}</h3>
         <form id='all-options' style={{display:'none'}}>
@@ -187,11 +186,15 @@ const Question = () => {
             <input type="submit" onClick={answerQuestion} value={options[2] || 'option'}></input>
             <input type="submit" onClick={answerQuestion} value={options[3] || 'option'}></input>
         </form>
-        <h3>Total Score: {totalScore}</h3>
         {/* <button onClick={newQuestion}>New Question</button> */}
         <p>{timer}</p>
         <p>{score}</p>
-        </>
+        </div>
+        <div id="end-message" style={{display:'none'}}>
+        <h3>Congraulations! You Have Finished The Quiz!</h3>
+        <h3>It's About Time!</h3>
+        </div>
+        </>         
     )
 }
 
