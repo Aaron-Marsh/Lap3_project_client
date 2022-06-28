@@ -47,11 +47,7 @@ function Setup() {
 
   return (
     <form onSubmit={handleSubmit}>
-   <TextField
-        variant="outlined"
-        label="Enter Username"
-        type="string"
-      />
+ 
       <CreateQuiz options={response.trivia_categories} label="Catergory" />
       <CreateQuiz options={difficultyOptions} label="Difficulty" />
       <CreateQuiz options={typeOptions} label="Type" />

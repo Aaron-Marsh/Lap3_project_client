@@ -39,10 +39,8 @@ const Question = () => {
     // intScore
   );
   
-    let apiUrl = `/api.php?amount=${questionsAmount}`;
-  
-  // const { response, loading } = useAxios({ url: apiUrl });
-  //  console.log(response);
+
+
   
   
   
