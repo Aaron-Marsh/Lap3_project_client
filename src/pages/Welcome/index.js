@@ -1,21 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react';
 import styles from './index.module.css'
 
+
+import { Modal } from '../../components';
+
 function Welcome() {
-  const routeChange = () => {
-    window.location.href='/setup';
-  }
+
+  const[openModal, setOpenModal] = useState(false)
+  
   return (
     <>
       <h2 aria-label='heading'>Welcome Page</h2>
-        <div className='container'>
+        <div className={styles.container}>
           
-          <div className='text'>
-            <p>Welcome to About Time. The quiz game you can play on your own or with friends. </p>
-          </div>
+          <div className={styles.frame}>
+            <p className={styles.intro}>Welcome to About Time. The quiz game you can play on your own or with friends. If you want to jump straight into setting up a game, enter a username and click the 'Got it!' button below.</p>
+            
+            <div>
+              <p className={styles.intro}>If you've never played before or want a refresher on how to play then click the Help button.</p>
 
-          <div className='button'>
-            <button role='setup' className={styles.btn} onClick={routeChange}>Got it!</button>
+              <button className={styles.btn}
+              onClick={ ()=> {
+              setOpenModal(true)
+              }}>
+              Help
+              </button>
+              {openModal && <Modal closeModal={setOpenModal} />}
+            </div>
+          
           </div>
           
         </div> 
