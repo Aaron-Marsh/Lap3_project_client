@@ -94,8 +94,7 @@ function Setup() {
 
   return (
     <form className='container' onSubmit={handleSubmit}>
-      <CreateQuiz options={Categories} label="Catergory" />
-
+      <CreateQuiz options={Categories} label="Category" />
       <CreateQuiz options={difficultyOptions} label="Difficulty" />
       <CreateQuiz options={typeOptions} label="Type" />
       <NumberOfQuestions />
