@@ -5,56 +5,61 @@ import { io } from 'socket.io-client';
 import useAxios from '../../hooks/useAxios';
 const socket = io('http://localhost:4000');
 
-io({ query: { name: 'Sally' } });
+// io({ query: { name: 'Sally' } });
 
-socket.emit('start', { category: 2, difficulty: 'easy', questionsAmount: 12 });
-let questionData = { category: 'blank' };
+// socket.emit('start', { category: 2, difficulty: 'easy', questionsAmount: 12 });
+// let questionData = { category: 'blank' };
 
-socket.on('ready', (data) => {
-  questionData = data;
-  console.log(questionData);
-});
+// socket.on('ready', (data) => {
+//   questionData = data;
+//   console.log(questionData);
+// });
 
 const Question = () => {
-    const {
-        question_category,
-        question_difficulty,
-        question_type,
-        amount_of_question,
-        intScore,
-    } = useSelector(state => state)
-    console.log(amount_of_question)
+  const {
+    question_category,
+    question_difficulty,
+    question_type,
+    questionsAmount,
+    intScore,
+  } = useSelector((state) => state);
+  console.log(
+
+    // question_difficulty,
+    question_category,
+ 
+    // questionsAmount,
+    // intScore
+  );
 
 
-
-
-
-  let apiUrl = `/api.php?amount=10`;
+  let apiUrl = `/api.php?amount=${questionsAmount}`;
+  
+  // const [score, setScore] = useState(0);
+  // if (question_category) {
+  //   apiUrl = apiUrl.concat(`&category=${question_category}`);
+  // }
+  // if (question_difficulty) {
+  //   apiUrl = apiUrl.concat(`&difficulty=${question_difficulty}`);
+  // }
+  // if (question_type) {
+  //   apiUrl = apiUrl.concat(`&type=${question_type}`);
+  // }
+  
   const { response, loading } = useAxios({ url: apiUrl });
-  console.log(response);
+  //  console.log(response);
 
+  // useEffect(() => {
+  //   setQuestions(questionData);
+  // });
 
+  // const newQuestion = (e) => {
+  //   e.preventDefault();
+  //   socket.emit('retrieveQuestion', { questionScore: score });
+  //   setQuestions(questionData);
+  // };
 
-
-
-
-
-
-
-  const [score, setScore] = useState(0);
-  const [questions, setQuestions] = useState(questionData);
-
-  useEffect(() => {
-    setQuestions(questionData);
-  });
-
-  const newQuestion = (e) => {
-    e.preventDefault();
-    socket.emit('retrieveQuestion', { questionScore: score });
-    setQuestions(questionData);
-  };
-
-  const listAnswers = () => {};
+  // const listAnswers = () => {};
 
   // useEffect(() => {
   //     socket.on('noQuestionsLeft', (data) => {
@@ -64,13 +69,13 @@ const Question = () => {
 
   return (
     <>
-      <h2>Questions</h2>
-      <h3>{questions.question}</h3>
+       <h2>Questions</h2>
+      {/* <h3>{ response.question_category}</h3> */}
       <ul>
-        <li>{questions.correct_answer}</li>
-      </ul>
-
-      <button onClick={newQuestion}>hello</button>
+        {/* <li>{questions.correct_answer}</li> */}
+      </ul> 
+  
+      {/* <button onClick={newQuestion}>hello</button> */}
     </>
   );
 };

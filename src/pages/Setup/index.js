@@ -4,10 +4,12 @@ import NumberOfQuestions from '../../components/NumberOfQuestions';
 import { Box } from '@mui/system';
 import { Button, CircularProgress, Typography } from '@mui/material';
 import useAxios from '../../hooks/useAxios';
+import { useNavigate } from 'react-router-dom'
 
 function Setup() {
   const { response, error, loading } = useAxios({ url: '/api_category.php' });
   // console.log(response)
+  const navigate = useNavigate()
 
   if (loading) {
     return (
@@ -27,6 +29,8 @@ function Setup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let path =  window.location.href='/quiz';
+    navigate(path);
   };
 
   const difficultyOptions = [
@@ -34,6 +38,7 @@ function Setup() {
     { id: 'medium', name: 'Medium' },
     { id: 'hard', name: 'Hard' },
   ];
+
 
   const typeOptions = [
     { id: 'multiple', name: 'multiple choice' },
