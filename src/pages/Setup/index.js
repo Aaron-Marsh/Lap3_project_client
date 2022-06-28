@@ -12,7 +12,7 @@ import {
 import useAxios from '../../hooks/useAxios';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import {Categories} from '../../data/Categories';
+import './style.css'
 
 function Setup() {
   const {
@@ -93,14 +93,14 @@ function Setup() {
   ];
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='container' onSubmit={handleSubmit}>
       <CreateQuiz options={Categories} label="Catergory" />
 
       <CreateQuiz options={difficultyOptions} label="Difficulty" />
       <CreateQuiz options={typeOptions} label="Type" />
       <NumberOfQuestions />
       <Box mt={3} width="50%">
-        <Button variant="contained" type="submit">
+        <Button className='btn' variant="contained" type="submit">
           Start Quiz
         </Button>
       </Box>
