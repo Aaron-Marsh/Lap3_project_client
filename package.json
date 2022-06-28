@@ -29,7 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --setupFilesAfterEnv ./src/setupTests.js",
-    "coverage": "react-scripts test --coverage --setupFilesAfterEnv ./src/setupTests.js",
+    "coverage": "react-scripts test --coverage --watchAll --setupFilesAfterEnv ./src/setupTests.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

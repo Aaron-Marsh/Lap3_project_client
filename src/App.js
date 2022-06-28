@@ -1,10 +1,10 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
-// import Welcome from './pages/Welcome'
-// import Setup from './pages/Setup'
+import Welcome from './pages/Welcome'
+import Setup from './pages/Setup'
 import Quiz from './pages/Quiz'
-// import Leaderboards from './pages/Leaderboards'
+import Leaderboards from './pages/Leaderboards'
 
 
 function App() {
@@ -13,18 +13,18 @@ function App() {
         <h1 aria-label="main-title">This is the main title in the App.js folder</h1>
         <main>
                 <Routes>
-                        {/* <Route path="/" element={
+                        <Route path="/" element={
                                 <Welcome />
-                        }/> */}
-                        {/* <Route path="/setup" element={
+                        }/>
+                        <Route path="/setup" element={
                                 <Setup />
-                        }/> */}
+                        }/>
                         <Route path="/quiz" element={
                                 <Quiz />
                         }/>
-                        {/* <Route path="/leaderboards" element={
+                        <Route path="/leaderboards" element={
                                 <Leaderboards />
-                        }/> */}
+                        }/>
                 </Routes>
         </main>
         </>
