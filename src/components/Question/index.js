@@ -1,54 +1,45 @@
 
-import { useSelect } from '@mui/base';
+// import { useSelect } from '@mui/base';
 import react, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import useAxios from '../../hooks/useAxios';
+// import { useSelector } from 'react-redux';
+// import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
 import './index.module.css'
 import { io } from 'socket.io-client'
-const socket = io('http://localhost:4000');
+const socket = io('https://lap3quizzer.herokuapp.com');
+
+// https://lap3quizzer.herokuapp.com
+// 'http://localhost:4000/'
 
 io({query: { name: 'Sally'}})
 
 // fake data for first run
-let questionData={category:'blank', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'};
+let questionData={question:{category:'blank', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'}};
 
 
 socket.on('ready', (data) => {
     questionData = data;
-    // console.log(questionData);
+    console.log(questionData);
 })
-
-socket.emit('start', {category: 2, difficulty: 'easy', questionsAmount: 12})
+socket.on('noQuestionsLeft', () => {
+    console.log('finished')
+}
+)
+// socket.emit('start', {category: 0, difficulty: 'medium', questionsAmount: 12})
 
 const Question = () => {
-    const {
-    question_category,
-    question_difficulty,
-    question_type,
-    questionsAmount,
-    intScore,
-  } = useSelector(state => state);
-  console.log(
-
-    question_difficulty,
-    question_category,
-    question_type,
- 
-    // questionsAmount,
-    // intScore
-  );
-  
-
-
-  
-  
+    useEffect( () => {
+        socket.emit('start', {category: 0, difficulty: 'medium', questionsAmount: 12})
+    },[]
+    )
+   
   
         const [score, setScore] = useState(0);
         const [questions, setQuestions] = useState('')
         const [options, setOptions] = useState([]);
         const [startTime, setStartTime] = useState(0);
         const [answered, setAnswered] = useState(false);
+        const [totalScore, setTotalScore] = useState(0)
 
 
         const interval = 10
@@ -87,7 +78,7 @@ const Question = () => {
                 if (answered) {
                     setAnswered(false)
                 } else {
-                    setScore(0)
+                    // setScore(0)
                 }
                 if (document.getElementById('message').textContent === '') {
                     document.getElementById('message').textContent = 'Too Slow!'
@@ -102,12 +93,12 @@ const Question = () => {
             const newQuestion = () => {
                 // e.preventDefault()
                 socket.emit('retrieveQuestion', {questionScore: score})
-                console.log(questionData)
-                setQuestions(questionData)
+                // console.log(questionData)
+                setQuestions(questionData.question)
                 
                 
-                let options = questionData.incorrect_answers
-                options.push(questionData.correct_answer)
+                let options = questionData.question.incorrect_answers
+                options.push(questionData.question.correct_answer)
                 options = options.sort(() => Math.random() - 0.5)
                 setOptions(options)
                 document.getElementById('question').style.display = ''
@@ -117,7 +108,7 @@ const Question = () => {
 
                 setStartTime(Date.now)
             }
-            
+            // let newTotalScore=0
         const answerQuestion = e => {
             e.preventDefault()
             if (e.target.value === questions.correct_answer) {
@@ -126,15 +117,18 @@ const Question = () => {
                 document.getElementById('question-score').textContent = `+${10000-elapsedTime}`
                 document.getElementById('question-score').style.color = 'green'
                 document.getElementById('message').textContent = 'Correct!'
-                setScore(10000-elapsedTime);
+                // setScore(100);
             } else {
                 console.log('incorrect')
                 document.getElementById('question-score').textContent = `+0`
                 document.getElementById('question-score').style.color = 'red'
                 document.getElementById('message').textContent = `Incorrect! The answer was ${questions.correct_answer}`
-                setScore(0);
+                // setScore(0);
             }
             // console.log(elapsedTime);
+            console.log(score)
+            // newTotalScore = score;
+            // setTotalScore(newTotalScore)
             document.getElementById('all-options').style.display='none';
             document.getElementById('question').style.display='none';
             setAnswered(true);
@@ -165,9 +159,10 @@ const Question = () => {
             <input type="submit" onClick={answerQuestion} value={options[2] || 'option'}></input>
             <input type="submit" onClick={answerQuestion} value={options[3] || 'option'}></input>
         </form>
-        
+        <h3>Total Score: {totalScore}</h3>
         {/* <button onClick={newQuestion}>New Question</button> */}
-        {/* <p>{timer}</p> */}
+        <p>{timer}</p>
+        <p>{score}</p>
         </>
     )
 }
