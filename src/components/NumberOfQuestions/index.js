@@ -4,6 +4,7 @@ import { Box } from "@mui/system";
 import { useDispatch } from 'react-redux';
 import { handleAmountChange } from '../../redux/action';
 
+
 const NumberOfQuestions = () => {
   const dispatch = useDispatch()
 
@@ -16,7 +17,7 @@ const NumberOfQuestions = () => {
 
 
   return (
-    <Box mt={3} width="50%">
+    <Box aria-label="Number-Of-Questions" className="container" mt={3} width="50%">
     <FormControl fullWidth size="small">
       <TextField
         onChange={handleChange}
