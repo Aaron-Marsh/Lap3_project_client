@@ -1,12 +1,12 @@
-import { default as Leaderboard } from './';
+import { default as Leaderboards } from './';
 import { screen, render } from '@testing-library/react';
 
 describe('Result', () => {
     beforeEach(() => {
-        render(<Leaderboard />);
+        render(<Leaderboards />);
     });
 
-    test('it renders', () => {
+    test('it renders', async () => {
         expect(1).toEqual(1);
     });
 });

@@ -1,4 +1,4 @@
-// placeholder data. fetch function will go here
+
 
 let data = [
   {
