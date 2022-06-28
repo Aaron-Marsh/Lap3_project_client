@@ -22,11 +22,12 @@ const Question = () => {
     question_type,
     questionsAmount,
     intScore,
-  } = useSelector((state) => state);
+  } = useSelector(state => state);
   console.log(
 
-    // question_difficulty,
+    question_difficulty,
     question_category,
+    question_type,
  
     // questionsAmount,
     // intScore
@@ -35,18 +36,7 @@ const Question = () => {
 
   let apiUrl = `/api.php?amount=${questionsAmount}`;
   
-  // const [score, setScore] = useState(0);
-  // if (question_category) {
-  //   apiUrl = apiUrl.concat(`&category=${question_category}`);
-  // }
-  // if (question_difficulty) {
-  //   apiUrl = apiUrl.concat(`&difficulty=${question_difficulty}`);
-  // }
-  // if (question_type) {
-  //   apiUrl = apiUrl.concat(`&type=${question_type}`);
-  // }
-  
-  const { response, loading } = useAxios({ url: apiUrl });
+  // const { response, loading } = useAxios({ url: apiUrl });
   //  console.log(response);
 
   // useEffect(() => {

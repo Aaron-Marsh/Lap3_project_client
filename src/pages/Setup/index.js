@@ -2,7 +2,7 @@ import React from 'react';
 import CreateQuiz from '../../components/CreateQuiz/index';
 import NumberOfQuestions from '../../components/NumberOfQuestions';
 import { Box } from '@mui/system';
-import { Button, CircularProgress, Typography } from '@mui/material';
+import { Button, CircularProgress, Typography, TextField} from '@mui/material';
 import useAxios from '../../hooks/useAxios';
 import { useNavigate } from 'react-router-dom'
 
@@ -47,6 +47,11 @@ function Setup() {
 
   return (
     <form onSubmit={handleSubmit}>
+   <TextField
+        variant="outlined"
+        label="Enter Username"
+        type="string"
+      />
       <CreateQuiz options={response.trivia_categories} label="Catergory" />
       <CreateQuiz options={difficultyOptions} label="Difficulty" />
       <CreateQuiz options={typeOptions} label="Type" />

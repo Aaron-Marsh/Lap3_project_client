@@ -7,10 +7,11 @@ import {
   } from './actionType'
 
 const initState = { 
+  username: "",
   question_category: "",
   question_difficulty: "",
   question_type: "",
-  questionsAmount: 50,
+   questionsAmount: 10,
   intScore: 0,
  };
 
