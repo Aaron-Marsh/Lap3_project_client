@@ -19,7 +19,7 @@ function Welcome() {
             <CreateUser />
 
             <div>
-              <p className={styles.intro}>If you've never played before or want a refresher on how to play then click the Help button.</p>
+              <p className={styles.help}>If you've never played before or want a refresher on how to play then click the Help button.</p>
 
               <button className={styles.btn}
               onClick={ ()=> {

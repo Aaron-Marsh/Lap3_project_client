@@ -7,7 +7,7 @@
 .submit {
     width: 150px;
     height: 45px;
-    margin-top: 5px;
+    margin-top: 2em;
     border: none;
     background-color: var(--main-text);
     color: var(--main-background);
