@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.css'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+
 import { handleUsernameChange } from '../../redux/action';
-
-
 
 function CreateUser() {
     const [userInput, setUserInput] = useState('');
@@ -16,11 +16,14 @@ function CreateUser() {
         e.preventDefault();
         dispatch(handleUsernameChange(userInput))
         setUserInput('');
-        
+        routeChange();
     }
     
+    let navigate = useNavigate();
+    const routeChange = () => {
+        navigate('/leaderboards'); // this can be changed later, for now, just proof of redux working properly
+    }
     
-
     return (
         <div className={styles.formContainer}>
             <form className={styles.form} onSubmit={handleFormSubmit}>
