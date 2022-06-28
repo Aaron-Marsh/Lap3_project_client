@@ -17,7 +17,7 @@ const NumberOfQuestions = () => {
 
 
   return (
-    <Box className="container" mt={3} width="50%">
+    <Box aria-label="Number-Of-Questions" className="container" mt={3} width="50%">
     <FormControl fullWidth size="small">
       <TextField
         onChange={handleChange}
