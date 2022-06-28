@@ -4,6 +4,7 @@ import {
     CHANGE_DIFFICULTY,
     CHANGE_SCORE,
     CHANGE_TYPE,
+    CHANGE_USERNAME,
   } from './actionType'
 
 const initState = { 
@@ -41,6 +42,11 @@ const Reducer = (state=initState, action) => {
         return {
           ...state,
           score: action.payload,
+        };
+        case CHANGE_USERNAME:
+        return {
+          ...state,
+          username: action.payload,
         };
       default:
         return state;
