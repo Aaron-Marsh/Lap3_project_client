@@ -6,6 +6,7 @@ const socket = io('http://localhost:4000');
 
 io({query: { name: 'Sally'}})
 
+// fake data for first run
 let questionData={category:'blank', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'};
 
 
@@ -24,7 +25,7 @@ const Question = () => {
         const [answered, setAnswered] = useState(false);
 
 
-        const interval = 100
+        const interval = 10
         const [ timer, setTimer ] = useState(interval)
         useEffect(() => {
             const countdown = () => {
@@ -41,11 +42,8 @@ const Question = () => {
                 })
             };
     
-            /* Creating an interval that calls the countdown function every 1 second (1000ms)*/
             const int = setInterval(countdown, 1000);
-    
-            /* Return the function you want trigger on clean up.
-            In this case, I need to clear the interval */
+
             return () => clearInterval(int);
         }, [questions]);
 
@@ -58,6 +56,7 @@ const Question = () => {
             //     setStartTime(Date.now())
             
             // },[questionData])
+
             const endQuestion = () => {
                 if (answered) {
                     setAnswered(false)
@@ -129,7 +128,7 @@ const Question = () => {
                 
         <h2 aria-label="question-title">Let's Play!</h2>
 
-        {/* <Timer /> */}
+        <Timer />
 
         <h3 id="question-score"></h3>
         <p id='message'>Get Ready, the Game is starting Soon!</p>
@@ -142,7 +141,7 @@ const Question = () => {
         </form>
         
         {/* <button onClick={newQuestion}>New Question</button> */}
-        <p>{timer}</p>
+        {/* <p>{timer}</p> */}
         </>
     )
 }
