@@ -21,10 +21,14 @@ socket.on('noQuestionsLeft', () => {
     console.log('finished')
 }
 )
-
-socket.emit('start', {category: 0, difficulty: 'medium', questionsAmount: 12})
+// socket.emit('start', {category: 0, difficulty: 'medium', questionsAmount: 12})
 
 const Question = () => {
+    useEffect( () => {
+        socket.emit('start', {category: 0, difficulty: 'medium', questionsAmount: 12})
+    },[]
+    )
+    
         const [score, setScore] = useState(0);
         const [questions, setQuestions] = useState('')
         const [options, setOptions] = useState([]);
