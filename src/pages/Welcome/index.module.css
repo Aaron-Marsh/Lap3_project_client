@@ -25,6 +25,15 @@
 }
 
 .intro {
+    margin-top: 0.8em;
+    font-size: 6vh;
+    font-family: var(--text-font);
+    color: var(--main-primary);
+    text-align: left;
+}
+
+.help {
+    margin-top: 1.5em;
     font-size: 6vh;
     font-family: var(--text-font);
     color: var(--main-primary);
@@ -40,7 +49,7 @@
     background-color: var(--main-text);
     color: var(--main-background);
     font-family: var(--heading-font);
-    margin: 0.5em 1em;
+    margin: 0.8em 1em 0em 0em;
     padding: 0.25em 1em;
     cursor: pointer;
 }
