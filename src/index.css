@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+:root {
+  --main-background: #fffcf9;
+  --main-primary: #26547c; 
+  --main-text: #06d6a0;
+  --main-warning: #ef476f; 
+  --heading-font: 'Fjalla One', sans-serif;
+  --text-font: 'Yanone Kaffeesatz', sans-serif;
+  --large-font: 30px;
+
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
