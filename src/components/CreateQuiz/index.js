@@ -38,11 +38,13 @@ const CreateQuiz = (props) => {
         <FormControl size="small" fullWidth>
           <InputLabel>{label}</InputLabel>
           <Select value={value} label={label} onChange={handleChange}>
+      
             {options.map(({ id, name }) => (
               <MenuItem value={id} key={id}>
                 {name}
               </MenuItem>
             ))}
+      
           </Select>
         </FormControl>
       </Box>
