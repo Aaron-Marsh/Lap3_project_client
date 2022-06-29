@@ -21,7 +21,7 @@ body {
 }
 
 .waviy span {
-    font-family: 'Alfa Slab One', cursive;
+    font-family: var(--heading-font);
     position: relative;
     display: inline-block;
     color: Black;
