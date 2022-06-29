@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { Box } from '@mui/system';
 import { useDispatch } from 'react-redux';
-import './style.css'
-
+import './style.css';
 
 import {
   handleCategoryChange,
@@ -17,16 +16,15 @@ const CreateQuiz = (props) => {
   const [value, setValue] = useState('');
 
   const handleChange = (e) => {
-    e.preventDefault();
     setValue(e.target.value);
     switch (label) {
-      case "Category":
+      case 'Category':
         dispatch(handleCategoryChange(e.target.value));
         break;
-      case "Difficulty":
+      case 'Difficulty':
         dispatch(handleDifficultyChange(e.target.value));
         break;
-      case "Type":
+      case 'Type':
         dispatch(handleTypeChange(e.target.value));
         break;
       default:
