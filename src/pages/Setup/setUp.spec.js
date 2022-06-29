@@ -1,9 +1,10 @@
 
 import Setup from './index';
-import { getByLabelText, getByRole, screen, fireEvent } from '@testing-library/react';
+import { getByLabelText, getByRole, screen, render, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux'
 import store from '../../redux/store';
 import {BrowserRouter as Router} from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
 
 describe('Setup', () => {
     beforeEach(() => {
@@ -25,6 +26,16 @@ describe('Setup', () => {
         screen.getByRole('img')
        
       });
+
+    
+      test('onSubmit calls a  prop when clicked', () => {
+          const onSubmit = jest.fn();
+          render(<Provider store={store}> <Router><Setup></Setup></Router></Provider> )
+          let form = screen.getAllByRole('form')
+          fireEvent.click(getByRole('form'))
+          expect(onSubmit).toHaveBeenCalledTimes(1);
+      })
  
+
     });
     
