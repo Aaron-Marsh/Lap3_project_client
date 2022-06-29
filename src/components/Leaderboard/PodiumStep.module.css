@@ -1,0 +1,22 @@
+@media only screen and (max-width: 800px) {
+    .lowerPodium {
+        display: none !important;
+    }
+
+    .upperPodiumInner {
+        width: 12vw !important;
+    }
+
+    .upperPodium {
+        width: 12vw !important;
+    }
+
+    .lowerPodiumInner{
+        width:1px;
+    }
+
+    .medals {
+        width:10vw !important;
+        height:10vw !important;
+    }
+}
