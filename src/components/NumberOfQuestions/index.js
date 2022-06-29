@@ -23,7 +23,7 @@ const NumberOfQuestions = () => {
         <TextField
           onChange={handleChange}
           variant="outlined"
-          label="Amount-of-Questions"
+          label="Number of questions"
           type="number"
           size="small"
          id="input"

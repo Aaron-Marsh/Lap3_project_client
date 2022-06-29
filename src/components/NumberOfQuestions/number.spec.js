@@ -10,7 +10,7 @@ describe('NumberOfQuestions', () => {
   });
 
   test('input label text-field', () => {
-    const input = screen.getByLabelText("Amount-of-Questions");
+    const input = screen.getByLabelText("Number of questions");
     expect(input).toBeInTheDocument();
   });
 

@@ -2,17 +2,10 @@ import React, { useState } from 'react';
 import CreateQuiz from '../../components/CreateQuiz/index';
 import NumberOfQuestions from '../../components/NumberOfQuestions';
 import { Box } from '@mui/system';
-import {
-  Button,
-  CircularProgress,
-  Typography,
-  TextField,
-  MenuItem,
-} from '@mui/material';
-import useAxios from '../../hooks/useAxios';
+import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import './style.css'
+import './style.css';
 
 function Setup() {
   const {
@@ -26,44 +19,52 @@ function Setup() {
     question_difficulty,
     question_category,
     question_type,
-    questionsAmount
-    // intScore
+    questionsAmount,
+    intScore
   );
+  const [values, setValues] = useState({
+    question_category,
+    question_difficulty,
+    question_type,
+    questionsAmount,
+    intScore,
+  });
 
-  // const {  error, loading } = useAxios({ url: '/api_category.php' });
-  // // console.log(response)
   const navigate = useNavigate();
-
-  // if (loading) {
-  //   return (
-  //     <Box mt={20}>
-  //       <CircularProgress />
-  //     </Box>
-  //   );
-  // }
-
-  // if (error) {
-  //   return (
-  //     <Typography variant="h6" my={20} color="red">
-  //       Something went wrong
-  //     </Typography>
-  //   );
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let path = (window.location.href = '/quiz');
     navigate(path);
+    setValues(validate(values));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.question_category) {
+      errors.question_category = 'select cat';
+    }
+    if (!values.question_difficulty) {
+      errors.question_difficulty = 'select diff';
+    }
+    if (!values.question_type) {
+      errors.question_type = 'select type';
+    }
   };
 
   const difficultyOptions = [
-    { id: 'easy', name: 'Easy' },
-    { id: 'medium', name: 'Medium' },
-    { id: 'hard', name: 'Hard' },
+    { name: 'Easy', id: 'easy' },
+    { name: 'Medium', id: 'medium' },
+    { name: 'Hard', id: 'hard' },
   ];
 
   const typeOptions = [
-    { id: 'multiple', name: 'multiple choice' },
+    { name: 'multiple choice', id: 'multiple' },
     // { id: 'boolean', name: 'True/False' },
   ];
   const Categories = [
@@ -93,17 +94,20 @@ function Setup() {
   ];
 
   return (
-    <form className='container' onSubmit={handleSubmit}>
-      <CreateQuiz options={Categories} label="Category" />
-      <CreateQuiz options={difficultyOptions} label="Difficulty" />
-      <CreateQuiz options={typeOptions} label="Type" />
-      <NumberOfQuestions />
-      <Box mt={3} width="50%">
-        <Button className='btn' variant="contained" type="submit">
-          Start Quiz
-        </Button>
-      </Box>
-    </form>
+    <div className="main">
+      <form className="frame" onSubmit={handleSubmit}>
+        <h2>START A NEW GAME</h2>
+        <CreateQuiz options={Categories} label="Category" />
+        <CreateQuiz options={difficultyOptions} label="Difficulty" />
+        <CreateQuiz options={typeOptions} label="Type" />
+        <NumberOfQuestions />
+        <Box mt={3} width="50%">
+          <Button className="btn" variant="contained" type="submit">
+            Start Quiz
+          </Button>
+        </Box>
+      </form>
+    </div>
   );
 }
 
