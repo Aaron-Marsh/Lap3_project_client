@@ -7,7 +7,7 @@ import Timer from '../Timer'
 import Setup from '../../pages/Setup'
 import './index.module.css'
 import { io } from 'socket.io-client'
-const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Aaron'}});
+const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'AARON'}});
 
 let playing = false;
 
@@ -204,6 +204,8 @@ const Question = () => {
         setTimer(10)
       }
 
+      let username = useSelector(state => state.username)
+      
         
         // useEffect(() => {
             //     socket.on('noQuestionsLeft', (data) => {
@@ -213,6 +215,7 @@ const Question = () => {
                 
         return (
             <>
+            <h2>Hello {username}</h2>
             <div id="setup" style={{display: host ? '':'none'}}>
                 <p>i am the host</p>
                 <Setup start={startQuiz}/>

@@ -21,7 +21,7 @@ function CreateUser() {
     
     let navigate = useNavigate();
     const routeChange = () => {
-        navigate('/leaderboards'); // this can be changed later, for now, just proof of redux working properly
+        navigate('/quiz'); // this can be changed later, for now, just proof of redux working properly
     }
     
     return (
