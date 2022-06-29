@@ -9,7 +9,7 @@ import './style.css';
 
 let Logo = require( '../../assests/logo.png')
 
-function Setup() {
+function Setup(props) {
   const {
     question_category,
     question_difficulty,
@@ -17,13 +17,13 @@ function Setup() {
     questionsAmount,
     intScore,
   } = useSelector((state) => state);
-  console.log(
-    question_difficulty,
-    question_category,
-    question_type,
-    questionsAmount,
-    intScore
-  );
+  // console.log(
+  //   question_difficulty,
+  //   question_category,
+  //   question_type,
+  //   questionsAmount,
+  //   intScore
+  // );
   const [values, setValues] = useState({
     question_category,
     question_difficulty,
@@ -97,7 +97,7 @@ function Setup() {
 
   return (
     <div className="main">
-      <form className="frame" onSubmit={handleSubmit}>
+      <form className="frame" onSubmit={props.start}>
         <img src={Logo}/>
         <h2>START A NEW GAME</h2>
         <CreateQuiz options={Categories} label="Category" />
