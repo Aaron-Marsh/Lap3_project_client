@@ -4,10 +4,19 @@ import react, { useEffect, useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
+import Setup from '../../pages/Setup'
 import './index.module.css'
 import { io } from 'socket.io-client'
-const socket = io('https://lap3quizzer.herokuapp.com');
+const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'aaron'}});
 
+let playing = false;
+
+let host = false
+socket.on('hostStatus', (data) => {
+    if (data.hostStatus) {
+        host = true
+}
+})
 // https://lap3quizzer.herokuapp.com
 // 'http://localhost:4000/'
 
@@ -16,6 +25,8 @@ const socket = io('https://lap3quizzer.herokuapp.com');
 // fake data for first run
 let questionData={question:{category:'blank', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'}}; // questionchange
 
+
+// socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 10})
 
 socket.on('ready', (data) => {
     questionData = data;
@@ -26,13 +37,16 @@ socket.on('noQuestionsLeft', () => {
     document.getElementById('end-message').style.display='';
 }
 )
-// socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 10})
-
 const Question = () => {
-    useEffect( () => {
-        socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 5})
-    },[]
-    )
+
+
+
+
+
+    // useEffect( () => {
+    //     socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 7})
+    // },[]
+    // )
    
   
         const [score, setScore] = useState(0);
@@ -46,6 +60,7 @@ const Question = () => {
         const [ timer, setTimer ] = useState(interval)
         useEffect(() => {
             const countdown = () => {
+                
                 setTimer(t => {
                     if (t === 1) {
                         endQuestion()
@@ -58,12 +73,36 @@ const Question = () => {
                         return t - 1
                     }
                 })
+            
             };
     
             const int = setInterval(countdown, 1000);
 
             return () => clearInterval(int);
         }, []);
+
+        const startTimer =() => {
+            const countdown = () => {
+                
+                setTimer(t => {
+                    if (t === 1) {
+                        endQuestion()
+                        return t-1
+                    } else if (t === -2) {
+                        newQuestion()
+                        setQuestionNumber(prevState=>prevState+1)
+                        return interval
+                    } else {
+                        return t - 1
+                    }
+                })
+            
+            };
+    
+            const int = setInterval(countdown, 1000);
+
+            return () => clearInterval(int);
+        };
 
         // useEffect(() => {
             //     setQuestions(questionData)
@@ -136,7 +175,14 @@ const Question = () => {
             setAnswered(true);
         }
         
-      
+      const startQuiz = () => {
+        document.getElementById('whole-page').style.display=''
+        document.getElementById('setup').style.display='none'
+        playing = true
+        socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 7})
+        // startTimer()
+        setTimer(10)
+      }
         
         // useEffect(() => {
             //     socket.on('noQuestionsLeft', (data) => {
@@ -145,10 +191,17 @@ const Question = () => {
                 // })
                 
         return (
-        <>
+            <>
+            <div id="setup" style={{display: host ? '':'none'}}>
+                <p>i am the host</p>
+                {/* <Setup /> */}
+            <button onClick={startQuiz}>Start</button>
+            </div>
+
+        <div id="whole-page" style={{display:'none'}}>
         <div id="quiz-section">
         <h2 aria-label="question-title">Let's Play!</h2>
-        <Timer />
+        <Timer isPlaying={playing}/>
         <h3 id="question-score"></h3>
         <p>Question Number {questionNumber}</p>
         <p id='message'>Get Ready, the Game is starting Soon!</p>
@@ -160,14 +213,15 @@ const Question = () => {
             <input type="submit" onClick={answerQuestion} value={options[3] || 'option'}></input>
         </form>
         {/* <button onClick={newQuestion}>New Question</button> */}
-        {/* <p>{timer}</p> */}
+        <p>{timer}</p>
         <p>{score}</p>
         </div>
         <div id="end-message" style={{display:'none'}}>
         <h3>Congraulations! You Have Finished The Quiz!</h3>
         <h3>It's About Time!</h3>
         </div>
-        </>         
+        </div>         
+            </>
     )
 }
 
