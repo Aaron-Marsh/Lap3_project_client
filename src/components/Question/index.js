@@ -4,10 +4,11 @@ import react, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 // import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
+import NotHostMessage from '../NotHostMessage'
 import Setup from '../../pages/Setup'
 import './index.module.css'
 import { io } from 'socket.io-client'
-const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'aaron'}});
+const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'AARON'}});
 
 let playing = false;
 
@@ -15,7 +16,7 @@ let host = false
 socket.on('hostStatus', (data) => {
     if (data.hostStatus) {
         host = true
-}
+    }
 })
 // https://lap3quizzer.herokuapp.com
 // 'http://localhost:4000/'
@@ -27,34 +28,42 @@ let questionData={question:{category:'blank', incorrect_answers:['option 1', 'op
 
 
 // socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 10})
-
 socket.on('ready', (data) => {
     questionData = data;
     console.log(questionData);
+    document.getElementById('not-host-message').style.display='none'
+    document.getElementById('whole-page').style.display=''
+    playing = true
 })
 socket.on('noQuestionsLeft', () => {
     document.getElementById('quiz-section').style.display='none';
     document.getElementById('end-message').style.display='';
 }
 )
+
 const Question = () => {
 
 
-
-
-
+    
+    
     // useEffect( () => {
-    //     socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 7})
-    // },[]
-    // )
-   
-  
+        //     socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 7})
+        // },[]
+        // )
+        
+        
         const [score, setScore] = useState(0);
         const [questions, setQuestions] = useState('')
         const [options, setOptions] = useState([]);
         const [startTime, setStartTime] = useState(0);
         const [answered, setAnswered] = useState(false);
         const [questionNumber, setQuestionNumber] = useState(0)
+        
+        useEffect(()=>{
+            if (playing) {
+                setTimer(10);
+            }
+        },[playing])
 
         const interval = 10
         const [ timer, setTimer ] = useState(10000)
@@ -196,6 +205,8 @@ const Question = () => {
         setTimer(10)
       }
 
+      let username = useSelector(state => state.username)
+      
         
         // useEffect(() => {
             //     socket.on('noQuestionsLeft', (data) => {
@@ -205,6 +216,7 @@ const Question = () => {
                 
         return (
             <>
+            <h2>Hello {username}</h2>
             <div id="setup" style={{display: host ? '':'none'}}>
                 <p>i am the host</p>
                 <Setup start={startQuiz}/>
@@ -212,6 +224,7 @@ const Question = () => {
             </div>
             <div id="not-host-message"style={{display: host ? 'none':''}}>
                 <p>You are not the host</p>
+                <NotHostMessage />
             </div>
 
         <div id="whole-page" style={{display:'none'}}>
