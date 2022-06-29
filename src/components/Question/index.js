@@ -70,7 +70,7 @@ const Question = () => {
         const [answered, setAnswered] = useState(false);
         const [questionNumber, setQuestionNumber] = useState(0)
 
-        const interval = 5
+        const interval = 10
         const [ timer, setTimer ] = useState(interval)
         useEffect(() => {
             const countdown = () => {
@@ -140,6 +140,7 @@ const Question = () => {
 
                 setStartTime(Date.now)
             }
+
         const answerQuestion = e => {
             e.preventDefault()
             if (e.target.value === questions.correct_answer) {
@@ -177,7 +178,7 @@ const Question = () => {
         <h2 aria-label="question-title">Let's Play!</h2>
         <Timer />
         <h3 id="question-score"></h3>
-        <p>question number {questionNumber}</p>
+        <p>Question Number {questionNumber}</p>
         <p id='message'>Get Ready, the Game is starting Soon!</p>
         <h3 id="question" style={{display:'none'}}>{questions.question}</h3>
         <form id='all-options' style={{display:'none'}}>
@@ -187,7 +188,7 @@ const Question = () => {
             <input type="submit" onClick={answerQuestion} value={options[3] || 'option'}></input>
         </form>
         {/* <button onClick={newQuestion}>New Question</button> */}
-        <p>{timer}</p>
+        {/* <p>{timer}</p> */}
         <p>{score}</p>
         </div>
         <div id="end-message" style={{display:'none'}}>
