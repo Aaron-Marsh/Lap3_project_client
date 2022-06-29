@@ -10,13 +10,11 @@ describe('Setup', () => {
         render(<Provider store={store}> <Router><Setup></Setup></Router></Provider>);
     });
     test('input attribute text-field', () => {
-        screen.getByRole('button', {
-            name: /start quiz/i
+        screen.getByRole('button', { name: /start quiz/i
           })
        
       });
-    
-    //onchange test
+
       
     });
     
