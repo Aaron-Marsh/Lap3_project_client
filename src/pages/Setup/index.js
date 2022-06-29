@@ -38,7 +38,7 @@ function Setup(props) {
     e.preventDefault();
     let path = (window.location.href = '/quiz');
     navigate(path);
-    setValues(validate(values));
+    // setValues(validate(values));
   };
 
   const handleChange = (e) => {

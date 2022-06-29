@@ -21,7 +21,7 @@ export default function Podium({ winners }) {
       }}
     >
       {podium.map((winner) => (
-        <PodiumStep key={winner.position} podium={podium} winner={winner} />
+        <PodiumStep key={winner.id} podium={podium} winner={winner} />
       ))}
     </div>
   )

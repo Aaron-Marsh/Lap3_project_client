@@ -1,0 +1,112 @@
+.podiumName3,
+.podiumName4,
+.podiumName5,
+.podiumName6,
+.podiumName7,
+.podiumName8,
+.podiumName9,
+.podiumScore3,
+.podiumScore4,
+.podiumScore5,
+.podiumScore6,
+.podiumScore7,
+.podiumScore8,
+.podiumScore9 {
+    display: none;
+    font-family: var(--text-font);
+}
+
+.podiumName3{
+    grid-area: podiumName3;
+}
+
+.podiumName4{
+    grid-area: podiumName4;
+}
+
+.podiumName5{
+    grid-area: podiumName5;
+}
+
+.podiumName6{
+    grid-area: podiumName6;
+}
+
+.podiumName7{
+    grid-area: podiumName7;
+}
+
+.podiumName8{
+    grid-area: podiumName8;
+}
+
+.podiumName9{
+    grid-area: podiumName9;
+}
+
+.podiumScore3{
+    grid-area: podiumScore3;
+}
+
+.podiumScore4{
+    grid-area: podiumScore4;
+}
+
+.podiumScore5{
+    grid-area: podiumScore5;
+}
+
+.podiumScore6{
+    grid-area: podiumScore6;
+}
+
+.podiumScore7{
+    grid-area: podiumScore7;
+}
+
+.podiumScore8{
+    grid-area: podiumScore8;
+}
+
+.podiumScore9 {
+    grid-area: podiumScore9;
+}
+
+@media only screen and (max-width: 800px) {
+    #mobilePodiumDiv {
+        margin-top: 20px;
+        display: grid;
+        width: 100%;
+        height: fit-content;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            ". podiumName3 . podiumScore3 ."
+            ". podiumName4 . podiumScore4 ."
+            ". podiumName5 . podiumScore5 ."
+            ". podiumName6 . podiumScore6 ."
+            ". podiumName7 . podiumScore7 ."
+            ". podiumName8 . podiumScore8 ."
+            ". podiumName9 . podiumScore9 .";
+    }
+
+    .podiumName3,
+    .podiumName4,
+    .podiumName5,
+    .podiumName6,
+    .podiumName7,
+    .podiumName8,
+    .podiumName9,
+    .podiumScore3,
+    .podiumScore4,
+    .podiumScore5,
+    .podiumScore6,
+    .podiumScore7,
+    .podiumScore8,
+    .podiumScore9 {
+        display: block;
+    }
+
+}
+
+
