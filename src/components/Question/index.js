@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux';
 import Timer from '../Timer'
 import NotHostMessage from '../NotHostMessage'
 import Setup from '../../pages/Setup'
+import LeaderboardProps from '../LeaderboardProps';
 import './index.module.css'
 import { io } from 'socket.io-client'
-const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'AARON'}});
+const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'admin'}});
 
 let playing = false;
 let firstQuestionHappened = false; 
@@ -31,7 +32,7 @@ let questionData={questions:[{category:'blank', incorrect_answers:['option 1', '
 // socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 10})
 socket.on('ready', (data) => {
     questionData = data;
-    console.log(questionData);
+    // console.log(questionData);
     document.getElementById('not-host-message').style.display='none'
     document.getElementById('whole-page').style.display=''
     playing = true
@@ -41,9 +42,10 @@ socket.on('noQuestionsLeft', () => {
     document.getElementById('end-message').style.display='';
 }
 )
-let scores = [{id:1, username:'user',score:0}];
+let scores = [{id:1, name:'user',score:0}];
 socket.on('scoreBoard', (data)=> {
     scores = data;
+    console.log(scores)
 })
 
 const Question = () => {
@@ -63,7 +65,12 @@ const Question = () => {
         const [startTime, setStartTime] = useState(0);
         const [answered, setAnswered] = useState(false);
         const [questionNumber, setQuestionNumber] = useState(0)
+        const [scoreBoard, setScoreBoard] = useState(scores)
         
+        useEffect(() => {
+            setScoreBoard(scores)
+        },[scores])
+
         useEffect(()=>{
             if (playing) {
                 setTimer(10);
@@ -121,11 +128,12 @@ const Question = () => {
                 }
                 document.getElementById('question').style.display = 'none'
                 document.getElementById('all-options').style.display = 'none'
+                console.log(score)
                 socket.emit('getPlayersData', {questionScore: score})
                 if (firstQuestionHappened) {
                     questionData.questions.shift();
                 } else {
-                    socket.emit('getPlayersData', {questionScore: 0});
+                    // socket.emit('getPlayersData', {questionScore: 0});
                 }
             }
             
@@ -152,6 +160,7 @@ const Question = () => {
                 } else {
                     document.getElementById('quiz-section').style.display='none';
                     document.getElementById('end-message').style.display='';
+                    socket.emit('gameover');
                 }
 
             }
@@ -166,12 +175,14 @@ const Question = () => {
                 document.getElementById('question-score').style.color = 'green'
                 document.getElementById('message').textContent = 'Correct!'
                 setScore(currentScore);
+                socket.emit('getPlayersData', {questionScore: currentScore});
             } else {
                 console.log('incorrect')
                 document.getElementById('question-score').textContent = `+0`
                 document.getElementById('question-score').style.color = 'red'
                 document.getElementById('message').textContent = `Incorrect! The answer was ${questionData.questions[0].correct_answer}`
                 setScore(0);
+                socket.emit('getPlayersData', {questionScore: score});
             }
             // console.log(elapsedTime);
             document.getElementById('all-options').style.display='none';
@@ -243,6 +254,7 @@ const Question = () => {
         <h3>Congraulations! You Have Finished The Quiz!</h3>
         <h3>It's About Time!</h3>
         </div>
+        <LeaderboardProps data={scores} />
         </div>         
             </>
     )

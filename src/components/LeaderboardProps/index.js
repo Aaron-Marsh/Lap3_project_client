@@ -7,6 +7,7 @@ export default function Leaderboard(props) {
   
   function getScores() {
     let data = props.data.map((winner, position) => ({ ...winner, position }))
+  
     
     const trophyImgs = ['https://i.imgur.com/sRcjCDA.png', 'https://i.imgur.com/LZr8Arh.png', 'https://i.imgur.com/eGgxQKa.png']
     
@@ -20,7 +21,7 @@ export default function Leaderboard(props) {
 
   useEffect(() => {
     getScores()
-  }, [])
+  }, [props])
 
   return (
     <div className="leaderboard" style={{ width: '100%' }}>
