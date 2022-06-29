@@ -7,6 +7,7 @@ import Timer from '../Timer'
 import NotHostMessage from '../NotHostMessage'
 import Setup from '../../pages/Setup'
 import LeaderboardProps from '../LeaderboardProps';
+import Congratulations from '../Congratulations';
 import './index.module.css'
 import { io } from 'socket.io-client'
 const socket = io('https://lap3quizzer.herokuapp.com');
@@ -253,6 +254,7 @@ const Question = () => {
         <p>{score}</p>
         </div>
         <div id="end-message" style={{display:'none'}}>
+        <Congratulations />
         <h3>Congraulations! You Have Finished The Quiz!</h3>
         <h3>It's About Time!</h3>
         </div>
