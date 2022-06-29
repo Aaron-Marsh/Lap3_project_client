@@ -17,7 +17,7 @@ describe('CreateQuiz', () => {
     );
   });
 
-  test('input attribute text-field', () => {
+  test('label to exsist', () => {
     screen.findAllByText(/\{label\}/i)
   });
 
