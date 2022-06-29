@@ -57,7 +57,7 @@ const Question = () => {
         const [questionNumber, setQuestionNumber] = useState(0)
 
         const interval = 10
-        const [ timer, setTimer ] = useState(interval)
+        const [ timer, setTimer ] = useState(10000)
         useEffect(() => {
             const countdown = () => {
                 
@@ -188,7 +188,7 @@ const Question = () => {
         
         
         document.getElementById('setup').style.display='none'
-        // playing = true
+        playing = true
         socket.emit('start', {category: question_category, difficulty: question_difficulty, questionsAmount: questionsAmount})
         document.getElementById('not-host-message').style.display='none'
         document.getElementById('whole-page').style.display=''
