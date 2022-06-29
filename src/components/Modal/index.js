@@ -6,7 +6,7 @@ function Modal({closeModal}) {
         <div className={styles.modalBackground}>
             <div className={styles.modalContainer}>
                 <div className={styles.titleCloseBtn}>
-                    <button onClick={() => closeModal(false)}>x</button>
+                    {/* <button onClick={() => closeModal(false)}>x</button> */}
                 </div>
                 <div className={styles.title}>
                     <h2>Need a hand? 🕒</h2>
@@ -15,12 +15,12 @@ function Modal({closeModal}) {
                 <div className={styles.body}>
                     <h4>Starting a game</h4>
                     <ul>
-                      <li>Enter your username</li>
-                      <li>Select how many players</li>
-                      <li>Choose a difficulty</li>
-                      <li>Choose a topic</li>
-                      <li>Choose the amount of questions</li>
-                      <li>Start the quiz!</li>
+                        <li>Enter your username</li>
+                        <li>Select how many players</li>
+                        <li>Choose a difficulty</li>
+                        <li>Choose a topic</li>
+                        <li>Choose the amount of questions</li>
+                        <li>Start the quiz!</li>
                     </ul>
 
                     <h4>Playing the game</h4>
