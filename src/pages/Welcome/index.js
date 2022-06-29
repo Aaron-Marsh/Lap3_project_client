@@ -3,7 +3,7 @@ import styles from './index.module.css'
 
 
 
-import { CreateUser, Modal } from '../../components';
+import { CreateUser, Modal, Loading } from '../../components';
 
 function Welcome() {
 
@@ -30,7 +30,7 @@ function Welcome() {
               </button>
               {openModal && <Modal closeModal={setOpenModal} />}
             </div>
-              
+              {/* <Loading /> */}
           </div>
           
         </div> 
