@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import podiumData from './data'
 import Podium from './Podium'
+import './index.css'
+
 
 export default function Leaderboard(props) {
   const [leaderboard, setLeaderboard] = useState(podiumData);
@@ -26,6 +28,8 @@ export default function Leaderboard(props) {
   return (
     <div className="leaderboard" style={{ width: '100%' }}>
       <Podium winners={leaderboard} />
+      <div id='mobilePodiumDiv'></div>
+
     </div>
   )
 }
