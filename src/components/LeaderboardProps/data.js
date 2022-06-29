@@ -48,7 +48,7 @@ let data = [
   },
   {
     id: '10',
-    name: 'Gertrude',
+    name: 'Chieko',
     score: 5
   }
 ].map((winner, position) => ({ ...winner, position }))
