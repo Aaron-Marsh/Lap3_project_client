@@ -46,18 +46,7 @@ function Setup(props) {
     setValues({ ...values, [name]: value });
   };
 
-  const validate = (values) => {
-    const errors = {};
-    if (!values.question_category) {
-      errors.question_category = 'select cat';
-    }
-    if (!values.question_difficulty) {
-      errors.question_difficulty = 'select diff';
-    }
-    if (!values.question_type) {
-      errors.question_type = 'select type';
-    }
-  };
+
 
   const difficultyOptions = [
     { name: 'Easy', id: 'easy' },
