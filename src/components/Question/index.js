@@ -4,6 +4,7 @@ import react, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 // import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
+import NotHostMessage from '../NotHostMessage'
 import Setup from '../../pages/Setup'
 import './index.module.css'
 import { io } from 'socket.io-client'
@@ -223,6 +224,7 @@ const Question = () => {
             </div>
             <div id="not-host-message"style={{display: host ? 'none':''}}>
                 <p>You are not the host</p>
+                <NotHostMessage />
             </div>
 
         <div id="whole-page" style={{display:'none'}}>
