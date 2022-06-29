@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styles from './index.module.css'
 
 
+
 import { CreateUser, Modal } from '../../components';
 
 function Welcome() {
@@ -29,7 +30,7 @@ function Welcome() {
               </button>
               {openModal && <Modal closeModal={setOpenModal} />}
             </div>
-          
+              
           </div>
           
         </div> 
