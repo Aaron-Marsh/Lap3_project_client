@@ -129,8 +129,8 @@ const Question = () => {
                     document.getElementById('question-score').textContent = `+0`
                     document.getElementById('question-score').style.color = 'red'
                 }
-                document.getElementById('question').style.display = 'none'
-                document.getElementById('all-options').style.display = 'none'
+                document.getElementById('question').style.visibility = 'hidden'
+                document.getElementById('all-options').style.visibility = 'hidden'
                 console.log(score)
                 socket.emit('getPlayersData', {questionScore: score})
                 if (firstQuestionHappened) {
@@ -154,10 +154,11 @@ const Question = () => {
                     options.push(questionData.questions[0].correct_answer) //questionchange
                     options = options.sort(() => Math.random() - 0.5)
                     setOptions(options)
-                    document.getElementById('question').style.display = ''
-                    document.getElementById('all-options').style.display=''
+                    document.getElementById('question').style.visibility = 'visible'
+                    document.getElementById('all-options').style.visibility='visible'
                     document.getElementById('question-score').textContent = ''
                     document.getElementById('message').textContent = ''
+                    document.getElementById('question-number').style.visibility = 'visible'
                     
                     setStartTime(Date.now)
                 } else {
@@ -188,8 +189,8 @@ const Question = () => {
                 socket.emit('getPlayersData', {questionScore: score});
             }
             // console.log(elapsedTime);
-            document.getElementById('all-options').style.display='none';
-            document.getElementById('question').style.display='none';
+            document.getElementById('all-options').style.visibility='hidden';
+            document.getElementById('question').style.visibility='hidden';
             setAnswered(true);
         }
         
@@ -224,7 +225,6 @@ const Question = () => {
                 
         return (
             <>
-            <h2>Hello {username}</h2>
             <div id="setup" style={{display: host ? '':'none'}}>
                 <p>i am the host</p>
                 <Setup start={startQuiz}/>
@@ -237,21 +237,21 @@ const Question = () => {
 
         <div id="whole-page" style={{display:'none'}}>
         <div id="quiz-section">
-        <h2 aria-label="question-title">Let's Play!</h2>
+        {/* <h2 aria-label="question-title">Let's Play!</h2> */}
         <Timer isPlaying={playing}/>
+        <p id="question-number" style={{visibility:'hidden'}}>Question Number {questionNumber}</p>
         <h3 id="question-score"></h3>
-        <p>Question Number {questionNumber}</p>
         <p id='message'>Get Ready, the Game is starting Soon!</p>
-        <h3 id="question" style={{display:'none'}}>{question}</h3>
-        <form id='all-options' style={{display:'none'}}>
+        <h3 id="question" style={{visibility:'hidden'}}>{question}</h3>
+        <form id='all-options' style={{visibility:'hidden'}}>
             <input type="submit" onClick={answerQuestion} value={options[0] || 'option'}></input>
             <input type="submit" onClick={answerQuestion} value={options[1] || 'option'}></input>
             <input type="submit" onClick={answerQuestion} value={options[2] || 'option'}></input>
             <input type="submit" onClick={answerQuestion} value={options[3] || 'option'}></input>
         </form>
         {/* <button onClick={newQuestion}>New Question</button> */}
-        <p>{timer}</p>
-        <p>{score}</p>
+        {/* <p>{timer}</p>
+        <p>{score}</p> */}
         </div>
         <div id="end-message" style={{display:'none'}}>
         <Congratulations />
@@ -259,6 +259,7 @@ const Question = () => {
         <h3>It's About Time!</h3>
         </div>
         <LeaderboardProps data={scores} />
+        <p>You are playing as {username ? username:'Guest'}</p>
         </div>         
             </>
     )
