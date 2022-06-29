@@ -1,7 +1,7 @@
 
 // import { useSelect } from '@mui/base';
 import react, { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
 import Setup from '../../pages/Setup'
@@ -175,14 +175,27 @@ const Question = () => {
             setAnswered(true);
         }
         
-      const startQuiz = () => {
-        document.getElementById('whole-page').style.display=''
+        const {
+            question_category,
+            question_difficulty,
+            question_type,
+            questionsAmount,
+            intScore,
+          } = useSelector((state) => state);
+
+      const startQuiz = (e) => {
+        e.preventDefault()
+        
+        
         document.getElementById('setup').style.display='none'
-        playing = true
-        socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 7})
+        // playing = true
+        socket.emit('start', {category: question_category, difficulty: question_difficulty, questionsAmount: questionsAmount})
+        document.getElementById('not-host-message').style.display='none'
+        document.getElementById('whole-page').style.display=''
         // startTimer()
         setTimer(10)
       }
+
         
         // useEffect(() => {
             //     socket.on('noQuestionsLeft', (data) => {
@@ -194,8 +207,11 @@ const Question = () => {
             <>
             <div id="setup" style={{display: host ? '':'none'}}>
                 <p>i am the host</p>
-                {/* <Setup /> */}
+                <Setup start={startQuiz}/>
             <button onClick={startQuiz}>Start</button>
+            </div>
+            <div id="not-host-message"style={{display: host ? 'none':''}}>
+                <p>You are not the host</p>
             </div>
 
         <div id="whole-page" style={{display:'none'}}>
