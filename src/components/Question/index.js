@@ -9,7 +9,7 @@ import Setup from '../../pages/Setup'
 import LeaderboardProps from '../LeaderboardProps';
 import './index.module.css'
 import { io } from 'socket.io-client'
-const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'admin'}});
+const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Guest'}});
 
 let playing = false;
 let firstQuestionHappened = false; 
@@ -71,11 +71,12 @@ const Question = () => {
             setScoreBoard(scores)
         },[scores])
 
+        let username = useSelector(state => state.username)
         useEffect(()=>{
             if (playing) {
                 setTimer(10);
             }
-            socket.emit('name', {username: username} )
+            socket.emit('name', {name: username} )
         },[playing])
 
         const interval = 10
@@ -207,11 +208,11 @@ const Question = () => {
         socket.emit('start', {category: question_category, difficulty: question_difficulty, questionsAmount: questionsAmount})
         document.getElementById('not-host-message').style.display='none'
         document.getElementById('whole-page').style.display=''
-        // startTimer()
+        
         setTimer(10)
       }
 
-      let username = useSelector(state => state.username)
+      
         
         // useEffect(() => {
             //     socket.on('noQuestionsLeft', (data) => {
