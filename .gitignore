@@ -24,3 +24,6 @@ yarn-debug.log*
 /.history 
 
 
+
+# Local Netlify folder
+.netlify

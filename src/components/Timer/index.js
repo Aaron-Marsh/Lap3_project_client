@@ -17,12 +17,12 @@ const renderTime = ({ remainingTime }) => {
   );
 };
 
-function Timer() {
+function Timer(props) {
   return (
     <div className="App">
       <div className="timer-wrapper">
         <CountdownCircleTimer
-          isPlaying
+          isPlaying={props.isPlaying}
           duration={10}
           colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colorsTime={[10, 6, 3, 0]}
