@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './style.css';
 
+let Logo = require( '../../assests/logo.png')
+
 function Setup() {
   const {
     question_category,
@@ -96,6 +98,7 @@ function Setup() {
   return (
     <div className="main">
       <form className="frame" onSubmit={handleSubmit}>
+        <img src={Logo}/>
         <h2>START A NEW GAME</h2>
         <CreateQuiz options={Categories} label="Category" />
         <CreateQuiz options={difficultyOptions} label="Difficulty" />

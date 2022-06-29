@@ -4,11 +4,12 @@
     position:relative;
     top:50%; 
     left:50%;
+
 }
 
-h2 {
+/* h2 {
     margin-top: 100px;
-}
+} */
 
 .frame {
     background-color: var(--main-background);
@@ -69,4 +70,10 @@ h2 {
       0%{background-position:0% 82%}
       50%{background-position:100% 19%}
       100%{background-position:0% 82%}
+}
+
+img {
+    width: 15%;
+    height: auto;
+
 }
