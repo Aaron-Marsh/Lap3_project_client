@@ -151,7 +151,7 @@
     0px -4px 1px rgba(163, 155, 139, 0.14); */
     border-radius: 8px;
     padding: 20px;
-
+    overflow:hidden;
 
     position: absolute;
     left: 50%;

@@ -157,7 +157,7 @@ area {
     font-size: 4vw;
     position: relative;
     display: inline-block;
-    color: Black;
+    color: var(--main-primary);
     text-transform: uppercase;
     animation: waviy 1s infinite;
     /* animation-delay: calc(.1s * var(--i)); */
