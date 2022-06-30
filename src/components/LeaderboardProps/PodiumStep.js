@@ -91,6 +91,9 @@ export default function PodiumStep({ podium, winner }) {
       newName.setAttribute('class', `podiumName${winner.position}`);
       let pos = parseInt(winner.position, 10) + 1;
       newName.textContent = '#'+ pos +' - '+ winner.name;
+      if(newName.textContent=='#Nan - undefined'){
+        newName.setAttribute('class', `hideThisElement`);
+      }
       wrapper.appendChild(newName);
     }
     
@@ -98,6 +101,9 @@ export default function PodiumStep({ podium, winner }) {
       let newScore = document.createElement('p');
       newScore.setAttribute('class', `podiumScore${winner.position}`);
       newScore.textContent = 'Score: '+winner.score;
+      if(newScore.textContent=='Score: undefined'){
+        newScore.setAttribute('class', `hideThisElement`);
+      }
       wrapper.appendChild(newScore);
     }
 
