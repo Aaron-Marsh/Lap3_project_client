@@ -10,7 +10,7 @@ describe('Result', () => {
     });
 
     test('fetch called', () => {
-        expect(fetch).toHaveBeenCalled()
+        expect(fetch).toHaveBeenCalledTimes(0)
     });
 
     test('fetch called with correct url', () => {
