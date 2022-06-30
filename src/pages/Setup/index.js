@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './style.css';
 
-let Logo = require('../../assests/logo.png');
+let Logo = require('../../assests/time-cropped.png');
 
 function Setup(props) {
   const {
@@ -87,21 +87,21 @@ function Setup(props) {
       <form
         data-testid="custom-element"
         role="form"
-        className="frame"
+        className="frame2"
         id="sub"
         onSubmit={props.start}
       >
         <img src={Logo} />
-        <h2>START A NEW GAME</h2>
+        <h2 className="setup-page-title">START A NEW GAME</h2>
 
         <CreateQuiz options={Categories} label="Category" />
         <CreateQuiz options={difficultyOptions} label="Difficulty" />
         <CreateQuiz options={typeOptions} label="Type" />
         <NumberOfQuestions />
         <Box mt={3} width="50%">
-          <Button className="btn" variant="contained" type="submit">
+          <button className="setup-btn" variant="contained" type="submit">
             Start Quiz
-          </Button>
+          </button>
         </Box>
       </form>
     </div>
