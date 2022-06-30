@@ -1,5 +1,5 @@
 import Modal from './index';
-import { screen, getByRole } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
 describe('CreateQuiz', () => {
   beforeEach(() => {
@@ -50,8 +50,4 @@ describe('CreateQuiz', () => {
     expect(btn).toBeInTheDocument();
   });
 
-  // test('it renders a form', () => {
-  //     let form = screen.getByRole('form');
-  //     expect(form).toBeInTheDocument();;
-  // });
 });
