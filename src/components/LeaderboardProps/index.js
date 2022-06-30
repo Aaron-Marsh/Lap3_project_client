@@ -7,10 +7,25 @@ import './index.css'
 export default function Leaderboard(props) {
   const [leaderboard, setLeaderboard] = useState(podiumData);
   
+  const [unsortedData, setUnsortedData] = useState(podiumData);
+
   function getScores() {
-    let data = props.data.map((winner, position) => ({ ...winner, position }))
-  
+    setUnsortedData(props.data)
+
+    function compare( a, b ) {
+      if ( a.score < b.score ){
+        return 1;
+      }
+      if ( a.score > b.score ){
+        return -1;
+      }
+      return 0;
+    }
     
+    let sortedData = unsortedData.sort( compare );
+
+    let data = sortedData.map((winner, position) => ({ ...winner, position }))
+  
     const trophyImgs = ['https://i.imgur.com/sRcjCDA.png', 'https://i.imgur.com/LZr8Arh.png', 'https://i.imgur.com/eGgxQKa.png']
     
     for (let i = 0; i < 3; i++) {
