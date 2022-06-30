@@ -63,8 +63,8 @@ const Question = () => {
         
         
         const [score, setScore] = useState(0);
-        const [question, setQuestion] = useState('')
-        const [options, setOptions] = useState([]);
+        const [question, setQuestion] = useState('Question')
+        const [options, setOptions] = useState(['option 1', 'option 2', 'option 3', 'option 4']);
         const [startTime, setStartTime] = useState(0);
         const [answered, setAnswered] = useState(false);
         const [questionNumber, setQuestionNumber] = useState(0)
@@ -262,15 +262,19 @@ const Question = () => {
             {/* <div> */}
         <h3 id="question-number" className={styles.major} style={{display:'none'}}>Question Number {questionNumber}</h3>
         <h3 id="question" className={styles.major} style={{display:'none'}}>{question}</h3>
-        <h3 id="question-score" className={styles.major}></h3>
+        <h3 id="question-score" className={styles.score}></h3>
         <h3 id='message' className={styles.major}>Get Ready, the Game is starting Soon!</h3>
             {/* </div> */}
 
         <form id='all-options' style={{visibility:'hidden'}}>
+            <div>
             <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[0] || 'option'}></input>
             <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[1] || 'option'}></input>
+            </div>
+            <div>
             <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[2] || 'option'}></input>
             <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[3] || 'option'}></input>
+            </div>
         </form>
         {/* <button onClick={newQuestion}>New Question</button> */}
         {/* <p>{timer}</p>
