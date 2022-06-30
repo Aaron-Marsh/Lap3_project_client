@@ -10,8 +10,8 @@ import LeaderboardProps from '../LeaderboardProps';
 import Congratulations from '../Congratulations';
 import './index.module.css'
 import { io } from 'socket.io-client'
-// const socket = io('https://lap3quizzer.herokuapp.com');
-const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Admin'}});
+const socket = io('https://lap3quizzer.herokuapp.com');
+// const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Admin'}});
 
 let playing = false;
 let firstQuestionHappened = false; 
@@ -166,6 +166,7 @@ const Question = () => {
                     document.getElementById('end-message').style.display='';
                     socket.emit('gameover');
                     setTimer(-3)
+                    // socket.disconnect()
                 }
 
             }
