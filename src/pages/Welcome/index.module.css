@@ -7,6 +7,17 @@
     justify-content: center;
 }
 
+.logo {
+    
+    width: 250vw;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+}
+
 .area{
     background: var(--main-primary);  
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
@@ -133,7 +144,7 @@
 .frame {
     background-color: var(--main-background);
     width: 70vw;
-    height: 63vh;
+    height: 80vh;
     border: 26px #efefef solid;
     border-color: var(--main-background);
     /* box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),
@@ -157,7 +168,7 @@
 }
 
 .intro {
-    margin-top: 0.1em;
+    margin-top: 7em;
     font-size: 1.6vw;
     font-family: var(--heading-font);
     color: var(--main-primary);
