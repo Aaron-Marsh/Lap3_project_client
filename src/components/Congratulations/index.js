@@ -6,9 +6,25 @@ function Congratulations() {
     return(
         <>
         <Confetti />
-            <div className={styles.container}>
-                <h1>Congratulations</h1>
-            </div>
+            {/* <div className={styles.container}> */}
+                <div className={styles.waviy}>
+                    <span >C</span>
+                    <span >O</span>
+                    <span >N</span>
+                    <span >G</span>
+                    <span >R</span>
+                    <span >A</span>
+                    <span >T</span>
+                    <span >U</span>
+                    <span >L</span>
+                    <span >A</span>
+                    <span >T</span>
+                    <span >I</span>
+                    <span >O</span>
+                    <span >N</span>
+                    <span >S</span>
+                </div>
+            {/* </div> */}
         </>
     )
 }
