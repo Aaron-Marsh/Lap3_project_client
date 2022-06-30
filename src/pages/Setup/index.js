@@ -86,7 +86,7 @@ function Setup(props) {
 
   return (
     <div className="main">
-      <form className="frame" onSubmit={props.start}>
+      <form aria-label="form"className="frame" name="sub" onSubmit={props.start}>
         <img src={Logo}/>
         <h2>START A NEW GAME</h2>
         <CreateQuiz options={Categories} label="Category" />
