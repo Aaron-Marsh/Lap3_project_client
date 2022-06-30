@@ -1,22 +1,10 @@
 @media only screen and (max-width: 800px) {
-    .lowerPodium {
-        display: none !important;
-    }
-
-    .upperPodiumInner {
-        width: 12vw !important;
-    }
-
-    .upperPodium {
-        width: 12vw !important;
-    }
-
-    .lowerPodiumInner{
-        width:1px;
+    .upperPodium, .upperPodiumInner, .lowerPodium, .lowerPodiumInner {
+        width: 10vw !important;
     }
 
     .medals {
-        width:10vw !important;
-        height:10vw !important;
+        width: 8vw !important;
+        height:8vw !important;
     }
 }
