@@ -139,6 +139,7 @@
     width: 70vw;
     height: fit-content;
     max-height: 100vh;
+    min-height: 50vh;
     border: 26px #efefef solid;
     border-color: var(--main-background);
     /* box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),

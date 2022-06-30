@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styles from './index.module.css'
+import { useNavigate } from 'react-router-dom';
 
 import { CreateUser, Modal, } from '../../components';
 let Logo = require( '../../assests/time-cropped.png')
@@ -7,6 +8,13 @@ let Logo = require( '../../assests/time-cropped.png')
 function Welcome() {
 
   const[openModal, setOpenModal] = useState(false)
+  const navigate = useNavigate();
+  
+  const onLeaderboardsClick = e => {
+      e.preventDefault();
+      let path = (window.location.href = '/leaderboards');
+    navigate(path);
+  }
   
   return (
     <>
@@ -49,6 +57,7 @@ function Welcome() {
               }}>
               Help
               </button>
+              <button className={styles.btn} onClick={onLeaderboardsClick}>Leaderboards</button>
               {openModal && <Modal closeModal={setOpenModal} />}
             </div>
               {/* <Loading /> */}
