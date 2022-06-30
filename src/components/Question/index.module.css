@@ -1,16 +1,57 @@
 body {
     text-align: center;
 }
-h2 {
-    margin-bottom: 2rem;
-}
-
-h3 {
-    margin: 2rem;
-}
 
 input {
     min-width: 12rem;
     min-height: 2rem;
     margin: 1rem;
 }
+
+.minor {
+    font-family: var(--text-font);
+}
+
+.major {
+    margin: 2rem;
+    font-family: var(--heading-font);
+}
+
+.message {
+    font-family: var(--text-font);
+    font-size: 20px;
+}
+
+.btn {
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--main-warning);
+    color: var(--main-background);
+    font-family: var(--heading-font);
+    margin: 0.8em 1em 0em 0em;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    animation: hoverShake 0.20s linear 3;
+    background-color: var(--main-warning);
+    color: #fffcf9
+}
+
+.optionBtn {
+    width: fit-content;
+    height: fit-content;
+    font-size: 25px;
+    margin-top: 1vh;
+    border: none;
+    background-color: var(--main-yellow);
+    color: var(--main-background);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--heading-font);
+    padding: 0.25em 1em 0.25em 1em;
+}
+
+

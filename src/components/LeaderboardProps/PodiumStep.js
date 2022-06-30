@@ -63,7 +63,7 @@ export default function PodiumStep({ podium, winner }) {
           animate="visible"
           variants={{
             visible: {
-              height: 30 + 170 * (offset / podium.length),
+              height: 30 + 120 * (offset / podium.length),
               opacity: 1,
               transition: {
                 delay: offset,
@@ -84,25 +84,6 @@ export default function PodiumStep({ podium, winner }) {
       </div>
     )
   } else {
-    if (document.querySelector('#mobilePodiumDiv')) {
-    const wrapper = document.querySelector('#mobilePodiumDiv');
-    if (!document.querySelector(`.podiumName${winner.position}`)){
-      let newName = document.createElement('p');
-      newName.setAttribute('class', `podiumName${winner.position}`);
-      let pos = parseInt(winner.position, 10) + 1;
-      newName.textContent = '#'+ pos +' - '+ winner.name;
-      wrapper.appendChild(newName);
-    }
-    
-    if (!document.querySelector(`.podiumScore${winner.position}`)){
-      let newScore = document.createElement('p');
-      newScore.setAttribute('class', `podiumScore${winner.position}`);
-      newScore.textContent = 'Score: '+winner.score;
-      wrapper.appendChild(newScore);
-    }
-
-  }
-
   return (
     <div
       style={{
@@ -112,8 +93,8 @@ export default function PodiumStep({ podium, winner }) {
       className={styles.lowerPodium}
     >
       <motion.div
-        className='lowerPodiumInner'
-        style={{
+          className={styles.lowerPodiumInner}
+          style={{
           width: '6vw',
           placeContent: 'center',
           display: 'grid',
@@ -130,7 +111,7 @@ export default function PodiumStep({ podium, winner }) {
         animate="visible"
         variants={{
           visible: {
-            height: 30 + 170 * (offset / podium.length),
+            height: 30 + 120 * (offset / podium.length),
             opacity: 1,
             transition: {
               delay: offset,

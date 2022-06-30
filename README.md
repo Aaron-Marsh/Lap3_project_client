@@ -1,6 +1,5 @@
 # Lap 3 Project Client
 
-![SiteHomePage]()
 
 ![SiteQuizPage]()
 
@@ -36,7 +35,7 @@
 
 We launched our client on Netlify!
 
-- [](LINK)
+- [About Time](https://about-time.netlify.app)
 
 ## The Process
 
