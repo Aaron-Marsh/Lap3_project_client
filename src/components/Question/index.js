@@ -166,6 +166,7 @@ const Question = () => {
                     document.getElementById('end-message').style.display='';
                     socket.emit('gameover');
                     setTimer(-3)
+                    socket.disconnect()
                 }
 
             }
