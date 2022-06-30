@@ -15,4 +15,7 @@ describe('Result', () => {
     test('it renders', async () => {
         expect(1).toEqual(1);
     });
+    test('score', async () => {
+        screen.getByText(/score/i)
+    });
 });

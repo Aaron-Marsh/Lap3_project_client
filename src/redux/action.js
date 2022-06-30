@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import {
   CHANGE_CATEGORY,
   CHANGE_DIFFICULTY,
