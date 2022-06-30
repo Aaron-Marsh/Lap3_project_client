@@ -93,7 +93,8 @@ export default function PodiumStep({ podium, winner }) {
       newName.textContent = '#'+ pos +' - '+ winner.name;
       if(newName.textContent=='#Nan - undefined'){
         newName.classList.add(`hideThisElement`);
-      } else {
+      } 
+      if(newName.textContent!='#Nan - undefined' && newName.classList.contains('hideThisElement')){
         newName.classList.remove(`hideThisElement`);
       }
       wrapper.appendChild(newName);
@@ -105,7 +106,8 @@ export default function PodiumStep({ podium, winner }) {
       newScore.textContent = 'Score: '+winner.score;
       if(newScore.textContent=='Score: undefined'){
         newScore.classList.add(`hideThisElement`);
-      } else{
+      }
+      if(newScore.textContent!='Score: undefined' && newScore.classList.contains('hideThisElement')){
         newScore.classList.remove(`hideThisElement`);
       }
       wrapper.appendChild(newScore);
