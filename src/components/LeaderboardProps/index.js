@@ -41,10 +41,9 @@ export default function Leaderboard(props) {
   }, [props])
 
   return (
-    <div className="leaderboard" style={{ width: '100%' }}>
+    <div className="leaderboard" style={{ width: '100%', height:'240px' }}>
       <Podium winners={leaderboard} />
       <div id='mobilePodiumDiv'></div>
-
     </div>
   )
 }
