@@ -18,4 +18,5 @@ describe('CreateQuiz', () => {
   test('label to exsist', () => {
     screen.findAllByText(/\{label\}/i);
   });
+
 });

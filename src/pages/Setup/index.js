@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './style.css';
 
-let Logo = require( '../../assests/logo.png')
+let Logo = require('../../assests/logo.png');
 
 function Setup(props) {
   const {
@@ -46,8 +46,6 @@ function Setup(props) {
     setValues({ ...values, [name]: value });
   };
 
-
-
   const difficultyOptions = [
     { name: 'Easy', id: 'easy' },
     { name: 'Medium', id: 'medium' },
@@ -85,10 +83,17 @@ function Setup(props) {
   ];
 
   return (
-    <div className="main">
-      <form aria-label="form"className="frame" name="sub" onSubmit={props.start}>
-        <img src={Logo}/>
+    <div data-testid="my-select-component" className="main">
+      <form
+        data-testid="custom-element"
+        role="form"
+        className="frame"
+        id="sub"
+        onSubmit={props.start}
+      >
+        <img src={Logo} />
         <h2>START A NEW GAME</h2>
+
         <CreateQuiz options={Categories} label="Category" />
         <CreateQuiz options={difficultyOptions} label="Difficulty" />
         <CreateQuiz options={typeOptions} label="Type" />
