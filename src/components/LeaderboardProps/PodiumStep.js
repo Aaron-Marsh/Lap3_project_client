@@ -63,7 +63,7 @@ export default function PodiumStep({ podium, winner }) {
           animate="visible"
           variants={{
             visible: {
-              height: 30 + 100 * (offset / podium.length),
+              height: 30 + 120 * (offset / podium.length),
               opacity: 1,
               transition: {
                 delay: offset,
@@ -111,7 +111,7 @@ export default function PodiumStep({ podium, winner }) {
         animate="visible"
         variants={{
           visible: {
-            height: 30 + 100 * (offset / podium.length),
+            height: 30 + 120 * (offset / podium.length),
             opacity: 1,
             transition: {
               delay: offset,
