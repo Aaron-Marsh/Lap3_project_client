@@ -144,7 +144,7 @@
 .frame {
     background-color: var(--main-background);
     width: 70vw;
-    height: 80vh;
+    height: fit-content;
     border: 26px #efefef solid;
     border-color: var(--main-background);
     /* box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),

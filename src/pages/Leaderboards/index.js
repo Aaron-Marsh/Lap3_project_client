@@ -31,7 +31,6 @@ function Leaderboards() {
           <div className={styles.frame}>
             <h1 className={styles.intro}>Top 10 Leaderboard</h1>
             <Leaderboard />
-
             <button className={styles.btn}
               onClick={routeChange}>
               Home

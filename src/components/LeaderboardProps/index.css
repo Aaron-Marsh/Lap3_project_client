@@ -109,4 +109,6 @@
 
 }
 
-
+.hideThisElement{
+    display: hidden !important;
+}
