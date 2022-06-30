@@ -10,8 +10,8 @@ import LeaderboardProps from '../LeaderboardProps';
 import Congratulations from '../Congratulations';
 import './index.module.css'
 import { io } from 'socket.io-client'
-const socket = io('https://lap3quizzer.herokuapp.com');
-// const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Guest'}});
+// const socket = io('https://lap3quizzer.herokuapp.com');
+const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Admin'}});
 
 let playing = false;
 let firstQuestionHappened = false; 
@@ -82,7 +82,7 @@ const Question = () => {
         },[playing])
 
         const interval = 10
-        const [ timer, setTimer ] = useState(10000)
+        const [ timer, setTimer ] = useState(-3)
         useEffect(() => {
             const countdown = () => {
                 
@@ -165,6 +165,7 @@ const Question = () => {
                     document.getElementById('quiz-section').style.display='none';
                     document.getElementById('end-message').style.display='';
                     socket.emit('gameover');
+                    setTimer(-3)
                 }
 
             }
