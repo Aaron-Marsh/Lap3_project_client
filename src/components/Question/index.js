@@ -29,13 +29,38 @@ socket.on('hostStatus', (data) => {
 // io({query: { name: 'Sally'}})
 
 // fake data for first run
-let questionData={questions:[{category:'blank', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'}]}; // questionchange
+let questionData={questions:[{category:'blank', question: 'question', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'}]}; // questionchange
 
 
 // socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 10})
+const stringMap = {
+    '&quot;': '"',
+    '&#039;': '\''
+}
+
 socket.on('ready', (data) => {
     questionData = data;
-    // console.log(questionData);
+    console.log(questionData);
+    for (let i = 0; i < questionData.questions.length; i++) {
+        // questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;/g, '"')
+        // questionData.questions[i].question = questionData.questions[i].question.replace(/&#039;/g, '\'')
+        questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;|&#039;/g, function(matched){
+            return stringMap[matched]
+        })
+        questionData.questions[i].incorrect_answers[0] = questionData.questions[i].incorrect_answers[0].replace(/&quot;|&#039;/g, function(matched){
+            return stringMap[matched]
+        })
+        questionData.questions[i].incorrect_answers[1] = questionData.questions[i].incorrect_answers[1].replace(/&quot;|&#039;/g, function(matched){
+            return stringMap[matched]
+        })
+        questionData.questions[i].incorrect_answers[2] = questionData.questions[i].incorrect_answers[2].replace(/&quot;|&#039;/g, function(matched){
+            return stringMap[matched]
+        })
+        questionData.questions[i].correct_answer = questionData.questions[i].correct_answer.replace(/&quot;|&#039;/g, function(matched){
+            return stringMap[matched]
+        })
+
+      }
     document.getElementById('not-host-message').style.display='none'
     document.getElementById('whole-page').style.display=''
     playing = true
