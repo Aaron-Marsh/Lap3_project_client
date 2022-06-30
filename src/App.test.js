@@ -9,9 +9,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('App', () => {
     beforeEach(() => {
-        render( <Provider store={store}>
+        render( 
+        <Provider store={store}>
           <Router>
-          <App />
+            <App />
           </Router>
         </Provider>
         
