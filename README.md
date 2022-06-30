@@ -44,7 +44,9 @@ Enter a username and click lets go or read the help section within the game for 
  <img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" title="npm" **alt="npm" width="40" height="40"/>
  <img src="https://github.com/devicons/devicon/blob/master/icons/express/express-original-wordmark.svg" title="express" **alt="express" width="40" height="40"/>
  <img src="https://github.com/devicons/devicon/blob/master/icons/socketio/socketio-original-wordmark.svg" title="socket.io" **alt="socket.io" width="80" height="80"/>
+ <img src="https://github.com/devicons/devicon/blob/master/icons/jest/jest-plain.svg" title="Jest" **alt="Jest" width="40" height="40"/>
  
+  
 </div>
 
 ### Netlify
