@@ -7,6 +7,17 @@
     justify-content: center;
 }
 
+.logo {
+    
+    width: 250vw;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+}
+
 .area{
     background: var(--main-primary);  
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
@@ -157,7 +168,7 @@
 }
 
 .intro {
-    margin-top: 0.1em;
+    margin-top: 7em;
     font-size: 1.6vw;
     font-family: var(--heading-font);
     color: var(--main-primary);
