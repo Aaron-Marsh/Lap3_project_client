@@ -32,7 +32,7 @@
     text-align: center;
     display: top;
     font-family: var(--heading-font);
-    font-size: 25px;
+    font-size: 3vh;
 }
 
 .titleCloseBtn button {
@@ -50,9 +50,9 @@
     /* display: flex; */
     justify-content: center;
     align-items: center;
-    font-size: 1.7rem;
+    /* font-size: 1.7rem; */
     text-align: left;
-    font-size: 25px;
+    font-size: 3.5vh;
     font-family: var(--text-font)
 }
 
