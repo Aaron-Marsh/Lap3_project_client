@@ -7,81 +7,57 @@
 
 }
 
-/* h2 {
-    margin-top: 100px;
-} */
-
-.frame {
-    background-color: var(--main-background);
-    width: 80vw;
-    height: 90vh;
-    border: 26px #efefef solid;
-    border-color: var(--main-background);
-    /* box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),
-    inset -10px 0px 8px rgba(163, 155, 139, 0.66),
-    inset 3px 0px 8px rgba(163, 155, 139, 0.12),
-    inset 0px -8px 1px rgba(218, 216, 214, 0.4),
-    -28px -6px 60px rgba(163, 155, 139, 0.46),
-    -16px -4px 16px rgba(163, 155, 139, 0.46),
-    0px -4px 1px rgba(163, 155, 139, 0.14); */
-    border-radius: 8px;
-    padding: 20px; 
-
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    justify-content: center;
-    align-items: center;
-}
-
-.main {
-    background: var(--main-background);
-    height: 100vh;
-    /* background: #CCCCCC; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-    height: 100%;
-    width: 100%;
-    left:0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    background: linear-gradient(124deg, #26547c, rgb(57, 55, 55), rgb(243, 227, 227));
-  background-size: 1800% 1800%;
-  
-  -webkit-animation: rainbow 10s ease infinite;
-  -z-animation: rainbow 10s ease infinite;
-  -o-animation: rainbow 10s ease infinite;
-    animation: rainbow 10s ease infinite;}
-  
-  @-webkit-keyframes rainbow {
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  @-moz-keyframes rainbow {
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  @-o-keyframes rainbow {
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  @keyframes rainbow { 
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
+.setup-page-title {
+    font-family: var(--heading-font);
+    color: var(--main-primary);
 }
 
 img {
-    width: 15%;
+    width: 15rem;
     height: auto;
+    margin-bottom: 2rem;
 
+}
+
+.setup-btn {
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--main-warning);
+    color: var(--main-background);
+    font-family: var(--heading-font);
+    /* margin: 0.8em 1em 0em 0em; */
+    padding: 15px;
+    cursor: pointer;
+    margin: auto;
+    margin: -20px -50px;
+    position:relative;
+    top:50%;
+    left:50%;
+    
+}
+
+.setup-btn:hover {
+    animation: hoverShake 0.20s linear 3;
+    background-color: var(--main-warning);
+    color: #fffcf9
+}
+
+
+@keyframes hoverShake {
+    0% {
+        transform: skew(0deg, 0deg);
+    }
+
+    25% {
+        transform: skew(5deg, 5deg);
+    }
+
+    75% {
+        transform: skew(-5deg, -5deg);
+    }
+
+    100% {
+        transform: skew(0deg, 0deg);
+    }
 }
