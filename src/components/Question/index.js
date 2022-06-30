@@ -2,16 +2,17 @@
 // import { useSelect } from '@mui/base';
 import react, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 // import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
 import NotHostMessage from '../NotHostMessage'
 import Setup from '../../pages/Setup'
 import LeaderboardProps from '../LeaderboardProps';
 import Congratulations from '../Congratulations';
-import './index.module.css'
-import { io } from 'socket.io-client'
-// const socket = io('https://lap3quizzer.herokuapp.com');
-const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Admin'}});
+import styles from './index.module.css';
+import { io } from 'socket.io-client';
+const socket = io('https://lap3quizzer.herokuapp.com');
+// const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Admin'}});
 
 let playing = false;
 let firstQuestionHappened = false; 
@@ -62,23 +63,29 @@ const Question = () => {
         
         
         const [score, setScore] = useState(0);
-        const [question, setQuestion] = useState('')
-        const [options, setOptions] = useState([]);
+        const [question, setQuestion] = useState('Question')
+        const [options, setOptions] = useState(['option 1', 'option 2', 'option 3', 'option 4']);
         const [startTime, setStartTime] = useState(0);
         const [answered, setAnswered] = useState(false);
         const [questionNumber, setQuestionNumber] = useState(0)
         const [scoreBoard, setScoreBoard] = useState(scores)
+        const [isHost, setIsHost] = useState(false);
+
         
         useEffect(() => {
             setScoreBoard(scores)
         },[scores])
+
+        useEffect(()=> {
+            setIsHost(host)
+        },[host])
 
         let username = useSelector(state => state.username)
         useEffect(()=>{
             if (playing) {
                 setTimer(10);
             }
-            socket.emit('name', {name: username} )
+            socket.emit('name', {name: username ? username : 'Guest'} )
         },[playing])
 
         const interval = 10
@@ -129,7 +136,7 @@ const Question = () => {
                     document.getElementById('question-score').textContent = `+0`
                     document.getElementById('question-score').style.color = 'red'
                 }
-                document.getElementById('question').style.visibility = 'hidden'
+                document.getElementById('question').style.display = 'none'
                 document.getElementById('all-options').style.visibility = 'hidden'
                 console.log(score)
                 socket.emit('getPlayersData', {questionScore: score})
@@ -154,11 +161,11 @@ const Question = () => {
                     options.push(questionData.questions[0].correct_answer) //questionchange
                     options = options.sort(() => Math.random() - 0.5)
                     setOptions(options)
-                    document.getElementById('question').style.visibility = 'visible'
+                    document.getElementById('question').style.display = ''
                     document.getElementById('all-options').style.visibility='visible'
                     document.getElementById('question-score').textContent = ''
                     document.getElementById('message').textContent = ''
-                    document.getElementById('question-number').style.visibility = 'visible'
+                    document.getElementById('question-number').style.display = ''
                     
                     setStartTime(Date.now)
                 } else {
@@ -191,7 +198,7 @@ const Question = () => {
             }
             // console.log(elapsedTime);
             document.getElementById('all-options').style.visibility='hidden';
-            document.getElementById('question').style.visibility='hidden';
+            document.getElementById('question').style.display='none';
             setAnswered(true);
         }
         
@@ -216,6 +223,16 @@ const Question = () => {
         setTimer(10)
       }
 
+      const navigate = useNavigate();
+      const onHomeClick = e => {
+        e.preventDefault();
+        navigate('/');
+        // setValues(validate(values));
+      };
+      const onLeaderboardsClick = e => {
+          e.preventDefault();
+        navigate('/leaderboards');
+      }
       
         
         // useEffect(() => {
@@ -226,29 +243,35 @@ const Question = () => {
                 
         return (
             <>
-            <div id="setup" style={{display: host ? '':'none'}}>
-                <p>i am the host</p>
+            <div id="setup"style={{display: isHost ? '':'none'}}>
                 <Setup start={startQuiz}/>
             <button onClick={startQuiz}>Start</button>
             </div>
-            <div id="not-host-message"style={{display: host ? 'none':''}}>
-                <p>You are not the host</p>
+            <div id="not-host-message"style={{display: isHost ? 'none':''}}>
                 <NotHostMessage />
             </div>
 
         <div id="whole-page" style={{display:'none'}}>
-        <div id="quiz-section">
         {/* <h2 aria-label="question-title">Let's Play!</h2> */}
+        <div id="quiz-section" className={styles.quizSection}>
         <Timer isPlaying={playing}/>
-        <p id="question-number" style={{visibility:'hidden'}}>Question Number {questionNumber}</p>
-        <h3 id="question-score"></h3>
-        <p id='message'>Get Ready, the Game is starting Soon!</p>
-        <h3 id="question" style={{visibility:'hidden'}}>{question}</h3>
+
+            {/* <div> */}
+        <h3 id="question-number" className={styles.major} style={{display:'none'}}>Question Number {questionNumber}</h3>
+        <h3 id="question" className={styles.major} style={{display:'none'}}>{question}</h3>
+        <h3 id="question-score" className={styles.score}></h3>
+        <h3 id='message' className={styles.major}>Get Ready, the Game is starting Soon!</h3>
+            {/* </div> */}
+
         <form id='all-options' style={{visibility:'hidden'}}>
-            <input type="submit" onClick={answerQuestion} value={options[0] || 'option'}></input>
-            <input type="submit" onClick={answerQuestion} value={options[1] || 'option'}></input>
-            <input type="submit" onClick={answerQuestion} value={options[2] || 'option'}></input>
-            <input type="submit" onClick={answerQuestion} value={options[3] || 'option'}></input>
+            <div>
+            <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[0] || 'option'}></input>
+            <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[1] || 'option'}></input>
+            </div>
+            <div>
+            <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[2] || 'option'}></input>
+            <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[3] || 'option'}></input>
+            </div>
         </form>
         {/* <button onClick={newQuestion}>New Question</button> */}
         {/* <p>{timer}</p>
@@ -256,11 +279,13 @@ const Question = () => {
         </div>
         <div id="end-message" style={{display:'none'}}>
         <Congratulations />
-        <h3>Congraulations! You Have Finished The Quiz!</h3>
-        <h3>It's About Time!</h3>
+        <h3 className={styles.major}>You Have Finished The Quiz!</h3>
+        <h3 className={styles.major}>It's About Time!</h3>
+        <button onClick={onHomeClick} className={styles.btn}>Let's Go Again</button>
+        <button onClick={onLeaderboardsClick} className={styles.btn}>All Time Leaderboards</button>
         </div>
         <LeaderboardProps data={scores} />
-        <p>You are playing as {username ? username:'Guest'}</p>
+        <p className={styles.minor}>You are playing as {username ? username:'Guest'}</p>
         </div>         
             </>
     )

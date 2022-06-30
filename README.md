@@ -1,11 +1,16 @@
-# Lap 3 Project Client
+<div>
+<img src="https://i.ibb.co/k1PVV5H/time-cropped.png" alt="time-cropped" border="0" title="abouttimelogo" border="0"width="800" height="300"/>&nbsp;
+</div>
 
-![SiteHomePage]()
+---
 
-![SiteQuizPage]()
+<div>
+<img src="https://i.ibb.co/GkWM8Cv/Screenshot-2022-06-30-at-16-30-55.png" alt="Homepage" border="0" title="Homepage" width="500" height="300"/>&nbsp;
 
-## About 
+</div>
 
+
+## About 💾
 
 ### Installation
 - Clone Repo
@@ -13,9 +18,10 @@
 - Run `npm start`
 
 ### Usage
-- - Site available on localhost:3000
 
-### Technologies
+Enter a username and click lets go or read the help section within the game for more info on how to play 🎮
+
+### :hammer_and_wrench: Technologies
 
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
@@ -36,9 +42,10 @@
 
 We launched our client on Netlify!
 
-- [](LINK)
+- [About Time](https://about-time.netlify.app)
 
 ## The Process
+
 
 
 

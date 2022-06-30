@@ -1,20 +1,22 @@
 .form {
-    font-size: 1.6vw;
+    font-size: 20px;
     font-family: var(--heading-font);
     color: var(--main-primary);
+    margin: 1em;
 }
 
 .submit {
-    width: 8vw;
-    height: 7vh;
-    font-size: 2vw;
-    margin-top: 2em;
+    width: fit-content;
+    height: fit-content;
+    font-size: 25px;
+    margin-top: 1vh;
     border: none;
     background-color: var(--main-yellow);
     color: var(--main-background);
     border-radius: 8px;
     cursor: pointer;
     font-family: var(--heading-font);
+    padding: 0.25em 1em 0.25em 1em;
 }
 
 .submit:hover {
@@ -45,7 +47,7 @@ color: #fffcf9
 .createUser {
     width: 30vw;
     height: 7vh;
-    margin: 2em;
+    margin: 1em;
     border: solid 1px navy;
     background-color: var(--main-background);
     color: var(--main-primary);
