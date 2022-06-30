@@ -8,7 +8,7 @@
 <div>
 <img src="https://i.ibb.co/GkWM8Cv/Screenshot-2022-06-30-at-16-30-55.png" alt="Homepage" border="0" title="Homepage" width="500" height="300"/>&nbsp;
 <img src="https://i.ibb.co/khnd6JV/Screenshot-2022-06-30-at-20-03-22.png" alt="Setup Page" border="0" title="SetupPage" width="500" height="300"/>&nbsp;
-<img src="https://i.ibb.co/N2mdf5z/Screenshot-2022-06-30-at-20-03-55.png" alt="Quiz Page" border="0" title="QuizpAGE" width="450" height="300"/>&nbsp;
+<img src="https://i.ibb.co/N2mdf5z/Screenshot-2022-06-30-at-20-03-55.png" alt="Quiz Page" border="0" title="QuizpAGE" width="500" height="300"/>&nbsp;
 <img src="https://i.ibb.co/Vv6kB6Y/Screenshot-2022-06-30-at-20-05-01.png" alt="Congratulations page" border="0" title="Congrats" width="500" height="300"/>&nbsp;
 </div>
 
