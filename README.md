@@ -1,3 +1,4 @@
+# React Mulitplayer Quiz App
 <div>
 <img src="https://i.ibb.co/k1PVV5H/time-cropped.png" alt="time-cropped" border="0" title="abouttimelogo" border="0"width="800" height="250"/>&nbsp;
 </div>
@@ -11,7 +12,7 @@
 
 
 ## About 💾
-
+---
 ### Installation
 
 #### Client
@@ -24,11 +25,11 @@
 - cd into server folder
 - enter docker compose up in the command line
 
-### Usage
+#### Usage
 
 Enter a username and click lets go or read the help section within the game for more info on how to play 🎮
 
-### :hammer_and_wrench: Technologies
+## :hammer_and_wrench: Technologies
 
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
@@ -57,27 +58,37 @@ We launched our client on Netlify!
 3. We then further made use of Excalidraw to sketch out designs for our pages and schema. 
 4. We initially started with a backend team consisting of server setup, database setup and the implimentation of socket.io .
 5. The frontend team were responsible for creating the design and layout of the application based off the initial planning. This included the components, pages, navigation and style.
-6. The front and backend were deployed early on in the process to ensure any deployment issues were idnetified early in the process.
-7. Both teams were responsible for the logice that would underpin the running of the application.
-8. Testing was carried out at every day with a reportt generated for the end of the day.
-9. Changes were commited regulalry and each develope worked on their own branches before merging to a staging branch. The changes from the staging branch    were merged into main once they were approved.
+6. The front and backend were deployed early on in the process to ensure any deployment issues were identified early in the process.
+7. Both teams were responsible for the logic that would underpin the running of the application.
+8. Testing was carried out at every day with a report generated for the end of the day.
+9. Changes were commited regularly and each developer worked on their own branches before merging to a staging branch. The changes from the staging branch    were merged into main once they were approved.
 10. Once the various components were functioning we began the process of connecting the flow of information and refining our logic.
-11. When problems arose they were either solved by individual teammembers or a group effort was required.
-12. Once the website had a basic HTML we started connecting the client to the server
-13. As the application functioned as we envisioned then we undertook a redesign of the styling to aid playability.
+11. When problems arose they were either solved by individual team-members or a group effort was required.
+12. As the application functioned as we envisioned we then undertook a redesign of the styling to aid playability.
+13. Any further bugs were ironed out.
 14. Further work was undertaken on testing to generate a suitable level of coverage.
 
-### Wins
+## Wins
+- Using socket.io to allow multiples players on different devices.
+- Countdown feature.
+- Using redux to store and access data across the application.
+- Live leaderboard.
+- Choose difficulty, category and number of rounds.
+- Scores stored in a database and all time leaderboard update with this information.
 
-
-
-### Challenges
-
-
+## Challenges
+- Testing socket.io .
+- Extra player added to datatbase.
+- Questions not being displayed properly.
+- Timer feature.
 
 ### Bugs
 
-- No bugs we can find (Please inform us if you find any!)
+- No bugs we can find as of now. (Please inform us if you find any!)
 
 ### Future Features
+- User profile with streaks and records.
+- Different rooms and game modes.
+- Invite players.
+- User customisation such as avatars and colour scheme.
 
