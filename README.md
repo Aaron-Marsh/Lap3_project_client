@@ -1,9 +1,5 @@
 # Lap 3 Project Client
 
-<img src="./assests/logo.png"title="React" alt="React" width="40" height="40"/>&nbsp;
-<img src=""title="React" alt="React" width="40" height="40"/>&nbsp;
-<img src=""title="React" alt="React" width="40" height="40"/>&nbsp;
-<img src=""title="React" alt="React" width="40" height="40"/>&nbsp;
 
 ![SiteQuizPage]()
 
