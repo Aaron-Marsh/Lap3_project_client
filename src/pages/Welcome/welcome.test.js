@@ -30,10 +30,10 @@ describe('Welcome', () => {
     expect(para).toBeInTheDocument();
   });
 
-  // test('it renders a help button', () => {
-  //     let button = screen.getByRole('help');
-  //     expect(button).toBeInTheDocument();
-  // });
+  test('it renders a help button', () => {
+      let button = screen.getByTestId('help');
+      expect(button).toBeInTheDocument();
+  });
 
   // test('it should go to the setup page', () => {
   // Object.defineProperty(window, 'location', {

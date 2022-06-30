@@ -50,7 +50,7 @@ describe('CreateQuiz', () => {
 
 
   test('its about time to exsist!', () => {
-screen.getByRole('button', {
+screen.getByTestId('redobutton', {
       name: /let's go again/i
     })
     // expect(Btn).toBeInTheDocument();

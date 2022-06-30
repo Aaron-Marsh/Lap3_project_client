@@ -280,7 +280,7 @@ const Question = () => {
         <Congratulations />
         <h3 className={styles.major}>You Have Finished The Quiz!</h3>
         <h3 className={styles.major}>It's About Time!</h3>
-        <button onClick={onHomeClick} className={styles.btn}>Let's Go Again</button>
+        <button data-testid="redobutton"  onClick={onHomeClick} className={styles.btn}>Let's Go Again</button>
         <button onClick={onLeaderboardsClick} className={styles.btn}>All Time Leaderboards</button>
         </div>
         <LeaderboardProps data={scores} />
