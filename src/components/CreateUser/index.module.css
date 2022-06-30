@@ -45,12 +45,12 @@ color: #fffcf9
 .createUser {
     width: 30vw;
     height: 7vh;
-    margin: 2em;
+    margin: 1em;
     border: solid 1px navy;
     background-color: var(--main-background);
     color: var(--main-primary);
     border-radius: 8px;
-    font-size: 20px;
+    font-size: 2vw;
     padding: 10px;
     font-family: var(--heading-font);
     
