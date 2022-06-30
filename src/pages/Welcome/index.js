@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from './index.module.css'
 
 import { CreateUser, Modal, } from '../../components';
-let Logo = require( '../../assests/time.png')
+let Logo = require( '../../assests/time-cropped.png')
 
 function Welcome() {
 
@@ -32,9 +32,9 @@ function Welcome() {
 
 
           <div className={styles.frame}>
-              <div  className={styles.logo}>
-            <img src={Logo} alt-="About Time logo"></img>
-              </div>
+              
+            <img src={Logo} alt-="About Time logo" className={styles.logo}></img>
+              
 
             <p className={styles.intro}>Welcome to About Time. The quiz game you can play on your own or with friends. If you want to jump straight into setting up a game, enter a username and click the 'Got it!' button below.</p>
             
