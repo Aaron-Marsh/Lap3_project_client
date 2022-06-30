@@ -133,7 +133,7 @@
 .frame {
     background-color: var(--main-background);
     width: 70vw;
-    height: 65vh;
+    height: 63vh;
     border: 26px #efefef solid;
     border-color: var(--main-background);
     /* box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),
@@ -158,24 +158,24 @@
 
 .intro {
     margin-top: 0.1em;
-    font-size: 3.5vh;
+    font-size: 1.6vw;
     font-family: var(--heading-font);
     color: var(--main-primary);
     text-align: left;
 }
 
 .help {
-    margin-top: 1.5em;
-    font-size: 3.5vh;
+    margin-top: 1.8em;
+    font-size: 1.6vw;
     font-family: var(--heading-font);
     color: var(--main-primary);
     text-align: left;
 }
 
 .btn {
-    width: 150px;
-    height: 45px;
-    font-size: 25px;
+    width: 10vw;
+    height: 7vh;
+    font-size: 2vw;
     border-radius: 8px;
     border: none;
     background-color: var(--main-warning);
