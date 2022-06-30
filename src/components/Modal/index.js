@@ -14,14 +14,14 @@ function Modal({closeModal}) {
                     
                 <div className={styles.body}>
                     <h4>Starting a game</h4>
-                    <ul>
+                    <ol>
                         <li>Enter your username</li>
                         <li>Select how many players</li>
                         <li>Choose a difficulty</li>
                         <li>Choose a topic</li>
                         <li>Choose the amount of questions</li>
                         <li>Start the quiz!</li>
-                    </ul>
+                    </ol>
 
                     <h4>Playing the game</h4>
                     <p>The question will be displayed on your screen, at which point you will be given 10 seconds to choose an answer. 
