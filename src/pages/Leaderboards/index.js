@@ -1,5 +1,5 @@
 import React from 'react'
-import { Leaderboard, LeaderboardProps } from '../../components'
+import { Leaderboard } from '../../components'
 import styles from './index.module.css'
 
 function Leaderboards() {
