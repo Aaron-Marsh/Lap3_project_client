@@ -3,6 +3,21 @@ import './index.css'
 
 function NotHostMessage() {
     return (
+        <>
+        <div className="area" >
+            <ul className="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+                
     <div className="waviy">
         <span >W</span>
         <span >A</span>
@@ -21,6 +36,8 @@ function NotHostMessage() {
         <span >S</span>
         <span >T</span>
     </div>
+</div>
+    </>
     )
 }
 
