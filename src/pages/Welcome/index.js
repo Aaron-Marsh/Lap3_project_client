@@ -11,9 +11,8 @@ function Welcome() {
   const navigate = useNavigate();
   
   const onLeaderboardsClick = e => {
-      e.preventDefault();
-      let path = (window.location.href = '/leaderboards');
-    navigate(path);
+    e.preventDefault();
+    navigate('/leaderboards');
   }
   
   return (
@@ -44,7 +43,7 @@ function Welcome() {
             <img src={Logo} alt-="About Time logo" className={styles.logo}></img>
               
 
-            <p className={styles.intro}>Welcome to About Time. The quiz game you can play on your own or with friends. If you want to jump straight into setting up a game, enter a username and click the 'Got it!' button below.</p>
+            <p className={styles.intro}>Welcome to About Time. The quiz game you can play on your own or with friends. If you want to jump straight into setting up a game, enter a username and click the 'Let's Go!' button below.</p>
             
             <CreateUser />
 
