@@ -1,6 +1,16 @@
 import PodiumStep from './PodiumStep'
 
 export default function Podium({ winners }) {
+  let theseWinners = winners;
+
+  for (let i = 0; i < 10; i++) {
+    let datum = theseWinners[i]
+    if(!datum.id){
+      let id = Math.random()
+      theseWinners[i] = { ...datum, id }
+    }
+  }
+
   const podium = [8, 6, 4, 2, 0, 1, 3, 5, 7, 9]
     .reduce((podiumOrder, position) => [...podiumOrder, winners[position]], [])
     .filter(Boolean)
@@ -21,7 +31,7 @@ export default function Podium({ winners }) {
       }}
     >
       {podium.map((winner) => (
-        <PodiumStep key={winner.score+winner.position+winner.name} podium={podium} winner={winner} />
+        <PodiumStep key={winner.id} podium={podium} winner={winner} />
       ))}
     </div>
   )
