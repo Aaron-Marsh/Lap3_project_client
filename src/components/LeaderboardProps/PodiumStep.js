@@ -92,7 +92,9 @@ export default function PodiumStep({ podium, winner }) {
       let pos = parseInt(winner.position, 10) + 1;
       newName.textContent = '#'+ pos +' - '+ winner.name;
       if(newName.textContent=='#Nan - undefined'){
-        newName.setAttribute('class', `hideThisElement`);
+        newName.classList.add(`hideThisElement`);
+      } else {
+        newName.classList.remove(`hideThisElement`);
       }
       wrapper.appendChild(newName);
     }
@@ -102,7 +104,9 @@ export default function PodiumStep({ podium, winner }) {
       newScore.setAttribute('class', `podiumScore${winner.position}`);
       newScore.textContent = 'Score: '+winner.score;
       if(newScore.textContent=='Score: undefined'){
-        newScore.setAttribute('class', `hideThisElement`);
+        newScore.classList.add(`hideThisElement`);
+      } else{
+        newScore.classList.remove(`hideThisElement`);
       }
       wrapper.appendChild(newScore);
     }
