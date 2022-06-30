@@ -11,9 +11,8 @@ function Welcome() {
   const navigate = useNavigate();
   
   const onLeaderboardsClick = e => {
-      e.preventDefault();
-      let path = (window.location.href = '/leaderboards');
-    navigate(path);
+    e.preventDefault();
+    navigate('/leaderboards');
   }
   
   return (

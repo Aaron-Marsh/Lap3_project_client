@@ -173,7 +173,6 @@ const Question = () => {
                     document.getElementById('end-message').style.display='';
                     socket.emit('gameover');
                     setTimer(-3)
-                    // socket.disconnect()
                 }
 
             }
@@ -227,14 +226,12 @@ const Question = () => {
       const navigate = useNavigate();
       const onHomeClick = e => {
         e.preventDefault();
-        let path = (window.location.href = '/');
-        navigate(path);
+        navigate('/');
         // setValues(validate(values));
       };
       const onLeaderboardsClick = e => {
           e.preventDefault();
-          let path = (window.location.href = '/leaderboards');
-        navigate(path);
+        navigate('/leaderboards');
       }
       
         
