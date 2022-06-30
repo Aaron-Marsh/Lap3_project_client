@@ -1,18 +1,18 @@
 .form {
-    font-size: 25px;
+    font-size: 1.6vw;
     font-family: var(--heading-font);
     color: var(--main-primary);
 }
 
 .submit {
-    width: 150px;
-    height: 45px;
+    width: 8vw;
+    height: 7vh;
+    font-size: 2vw;
     margin-top: 2em;
     border: none;
-    background-color: var(--main-text);
+    background-color: var(--main-yellow);
     color: var(--main-background);
     border-radius: 8px;
-    font-size: 25px;
     cursor: pointer;
     font-family: var(--heading-font);
 }
@@ -43,9 +43,9 @@ color: #fffcf9
 
 
 .createUser {
-    width: 300px;
-    height: 45px;
-    margin: 20px;
+    width: 30vw;
+    height: 7vh;
+    margin: 2em;
     border: solid 1px navy;
     background-color: var(--main-background);
     color: var(--main-primary);
