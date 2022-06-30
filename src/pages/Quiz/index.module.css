@@ -139,7 +139,7 @@
     width: 70vw;
     height: fit-content;
     max-height: 100vh;
-    min-height: 50vh;
+    min-height: 60vh;
     border: 26px #efefef solid;
     border-color: var(--main-background);
     /* box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),
@@ -151,7 +151,7 @@
     0px -4px 1px rgba(163, 155, 139, 0.14); */
     border-radius: 8px;
     padding: 20px;
-
+    overflow:hidden;
 
     position: absolute;
     left: 50%;

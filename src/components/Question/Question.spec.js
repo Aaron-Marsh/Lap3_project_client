@@ -15,8 +15,8 @@ describe('CreateQuiz', () => {
     );
   });
 
-  test('Para1 i am the host to exsist', () => {
-    let Para1 = screen.getByText(/i am the host/i);
+  test('question number', () => {
+    let Para1 = screen.getByText(/question number/i);
     expect(Para1).toBeInTheDocument();
   });
 
@@ -27,13 +27,13 @@ describe('CreateQuiz', () => {
   //     expect(btn).toBeInTheDocument();
   //   });
 
-  test('Para2 you are not the host', () => {
-    let Para2 = screen.getByText(/you are not the host/i);
+  test("get ready, the game is starting soon", () => {
+    let Para2 = screen.getByText(/get ready, the game is starting soon!/i);
     expect(Para2).toBeInTheDocument();
   });
 
-  test('Heading get ready, the game is starting soon to exsists', () => {
-    let H = screen.getByText(/get ready, the game is starting soon!/i);
+  test('you have finished the quiz!', () => {
+    let H = screen.getByText( /you have finished the quiz!/i);
     expect(H).toBeInTheDocument();
   });
 
@@ -42,12 +42,20 @@ describe('CreateQuiz', () => {
     expect(H).toBeInTheDocument();
   });
 
-  test('congraulations! you have finished the quiz!', () => {
-    let A = screen.getByText(/congraulations! you have finished the quiz!/i);
+  test('its about time!', () => {
+    let A = screen.getByText(/it's about time!/i);
     expect(A).toBeInTheDocument();
   });
+
+
+
   test('its about time to exsist!', () => {
-    let B = screen.getByText(/it's about time!/i);
-    expect(B).toBeInTheDocument();
+screen.getByRole('button', {
+      name: /let's go again/i
+    })
+    // expect(Btn).toBeInTheDocument();
   });
+
+
+
 });

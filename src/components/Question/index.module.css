@@ -10,6 +10,7 @@ input {
 
 .minor {
     font-family: var(--text-font);
+    height:0;
 }
 
 .major {
@@ -17,9 +18,15 @@ input {
     font-family: var(--heading-font);
 }
 
+.score {
+    font-family: var(--heading-font);
+    height:0;
+}
+
 .message {
     font-family: var(--text-font);
     font-size: 20px;
+    height:0;
 }
 
 .btn {
@@ -52,6 +59,9 @@ input {
     cursor: pointer;
     font-family: var(--heading-font);
     padding: 0.25em 1em 0.25em 1em;
+}
+.quizSection {
+    min-height: 31rem;
 }
 
 

@@ -1,5 +1,5 @@
 <div>
-<img src="https://i.ibb.co/k1PVV5H/time-cropped.png" alt="time-cropped" border="0" title="abouttimelogo" border="0"width="900" height="300"/>&nbsp;
+<img src="https://i.ibb.co/k1PVV5H/time-cropped.png" alt="time-cropped" border="0" title="abouttimelogo" border="0"width="800" height="300"/>&nbsp;
 </div>
 
 ---
