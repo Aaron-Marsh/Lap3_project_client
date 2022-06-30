@@ -245,7 +245,6 @@ const Question = () => {
             <>
             <div id="setup"style={{display: isHost ? '':'none'}}>
                 <Setup start={startQuiz}/>
-            <button onClick={startQuiz}>Start</button>
             </div>
             <div id="not-host-message"style={{display: isHost ? 'none':''}}>
                 <NotHostMessage />
