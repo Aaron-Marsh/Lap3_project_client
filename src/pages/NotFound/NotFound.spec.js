@@ -8,11 +8,13 @@ describe('Question', () => {
         render(<Router><NotFound /></Router>)
     })
     test("go back to main page message", () => {
-        screen.getByText(/go back to main page/i)
+        screen.getByRole('heading', {
+            name: /whoops! seems like you may be lost, click the link to go back to main page/i
+          })
     });
 
-    test("not found message", () => {
-        screen.getByText(/not found/i)
+    test("list elements", () => {
+        screen.getByRole('list')
     });
 
 

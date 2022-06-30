@@ -7,10 +7,21 @@ describe('Congratulations', () => {
   });
 
 
-  test('Heading to exsist', () => {
-   const h1 = screen.getByRole('heading', {
-        name: /congratulations/i
-      })
-      expect(h1).toBeInTheDocument();
-});
+  test('everything is a node', () => {
+    const Span = () => (
+      <div>
+        {' '}
+        <span>
+            C
+          </span>
+         
+      </div>
+    );
+    render(<Span />);
+    expect(screen.getByText('C')).toMatchSnapshot(Node);
+    // expect(screen.getByText('F O R')).toBeInstanceOf(Node);
+    // expect(screen.getByText('H O S T')).toBeInstanceOf(Node);
+    
+  });
+
 });
