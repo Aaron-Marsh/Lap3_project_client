@@ -1,6 +1,9 @@
 # Lap 3 Project Client
 
-![SiteHomePage]()
+<img src="./assests/logo.png"title="React" alt="React" width="40" height="40"/>&nbsp;
+<img src=""title="React" alt="React" width="40" height="40"/>&nbsp;
+<img src=""title="React" alt="React" width="40" height="40"/>&nbsp;
+<img src=""title="React" alt="React" width="40" height="40"/>&nbsp;
 
 ![SiteQuizPage]()
 
@@ -36,7 +39,7 @@
 
 We launched our client on Netlify!
 
-- [](LINK)
+- [About Time](https://about-time.netlify.app)
 
 ## The Process
 

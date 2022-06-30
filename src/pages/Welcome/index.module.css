@@ -194,7 +194,7 @@
 .btn:hover {
     animation: hoverShake 0.20s linear 3;
     background-color: var(--main-warning);
-    color: #fffcf9
+    color:var(--main-background)
 }
 
 @keyframes hoverShake {
