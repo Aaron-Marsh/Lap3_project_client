@@ -1,5 +1,5 @@
 <div>
-<img src="https://i.ibb.co/k1PVV5H/time-cropped.png" alt="time-cropped" border="0" title="abouttimelogo" border="0"width="800" height="300"/>&nbsp;
+<img src="https://i.ibb.co/k1PVV5H/time-cropped.png" alt="time-cropped" border="0" title="abouttimelogo" border="0"width="800" height="250"/>&nbsp;
 </div>
 
 ---
@@ -13,9 +13,16 @@
 ## About 💾
 
 ### Installation
+
+#### Client
 - Clone Repo
+- cd into project folder then cd into client folder
 - Run `npm install`
 - Run `npm start`
+
+#### Server
+- cd into server folder
+- enter docker compose up in the command line
 
 ### Usage
 
