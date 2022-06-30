@@ -9,9 +9,9 @@ import Setup from '../../pages/Setup'
 import LeaderboardProps from '../LeaderboardProps';
 import Congratulations from '../Congratulations';
 import './index.module.css'
-import { io } from 'socket.io-client'
-const socket = io('https://lap3quizzer.herokuapp.com');
-// const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Admin'}});
+import { io } from 'socket.io-client';
+const socket = io('http://localhost:3000');
+// const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'George'}});
 
 let playing = false;
 let firstQuestionHappened = false; 
