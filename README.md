@@ -1,10 +1,16 @@
-# Lap 3 Project Client
+<div>
+<img src="https://i.ibb.co/k1PVV5H/time-cropped.png" alt="time-cropped" border="0" title="abouttimelogo" border="0"width="900" height="300"/>&nbsp;
+</div>
 
+---
 
-![SiteQuizPage]()
+<div>
+<img src="https://i.ibb.co/GkWM8Cv/Screenshot-2022-06-30-at-16-30-55.png" alt="Homepage" border="0" title="Homepage" width="200" height="300"/>&nbsp;
+
+</div>
+
 
 ## About 
-
 
 ### Installation
 - Clone Repo
