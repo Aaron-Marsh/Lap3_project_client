@@ -16,20 +16,28 @@
     width: 80vw;
     height: 90vh;
     border: 26px #efefef solid;
-    border-color: var(--main-warning);
-    box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),
+    border-color: var(--main-background);
+    /* box-shadow: inset -16px 8px 20px rgba(163, 155, 139, 0.36),
     inset -10px 0px 8px rgba(163, 155, 139, 0.66),
     inset 3px 0px 8px rgba(163, 155, 139, 0.12),
     inset 0px -8px 1px rgba(218, 216, 214, 0.4),
     -28px -6px 60px rgba(163, 155, 139, 0.46),
     -16px -4px 16px rgba(163, 155, 139, 0.46),
-    0px -4px 1px rgba(163, 155, 139, 0.14);
-    border-radius: 1px;
+    0px -4px 1px rgba(163, 155, 139, 0.14); */
+    border-radius: 8px;
     padding: 20px; 
+
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
 }
 
 .main {
-    background: #fffcf9;
+    background: var(--main-background);
     height: 100vh;
     /* background: #CCCCCC; */
     display: flex;
