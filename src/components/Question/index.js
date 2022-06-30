@@ -226,13 +226,13 @@ const Question = () => {
 
       const navigate = useNavigate();
       const onHomeClick = e => {
-        // e.preventDefault();
+        e.preventDefault();
         let path = (window.location.href = '/');
         navigate(path);
         // setValues(validate(values));
       };
       const onLeaderboardsClick = e => {
-        //   e.preventDefault();
+          e.preventDefault();
           let path = (window.location.href = '/leaderboards');
         navigate(path);
       }
