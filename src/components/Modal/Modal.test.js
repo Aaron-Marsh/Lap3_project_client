@@ -49,5 +49,4 @@ describe('CreateQuiz', () => {
     let btn = screen.getByRole('button');
     expect(btn).toBeInTheDocument();
   });
-
 });
