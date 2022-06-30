@@ -2,6 +2,7 @@
 // import { useSelect } from '@mui/base';
 import react, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 // import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
 import NotHostMessage from '../NotHostMessage'
@@ -217,6 +218,13 @@ const Question = () => {
         setTimer(10)
       }
 
+      const navigate = useNavigate();
+      const onHomeClick = (e) => {
+        e.preventDefault();
+        let path = (window.location.href = '/');
+        navigate(path);
+        // setValues(validate(values));
+      };
       
         
         // useEffect(() => {
@@ -259,6 +267,7 @@ const Question = () => {
         <Congratulations />
         <h3>Congraulations! You Have Finished The Quiz!</h3>
         <h3>It's About Time!</h3>
+        <button onClick={onHomeClick}>Home</button>
         </div>
         <LeaderboardProps data={scores} />
         <p>You are playing as {username ? username:'Guest'}</p>
