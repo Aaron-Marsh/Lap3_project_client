@@ -32,7 +32,7 @@ function CreateUser() {
                 <input className={styles.createUser} id='username' 
                 type='text' onChange={handleInput} value={userInput}></input>
                 
-                <input className={styles.submit} type='submit' value={'Got It!'}/>
+                <input className={styles.submit} type='submit' value={'Let\'s Go!'}/>
             </form>
         </div>
     )
