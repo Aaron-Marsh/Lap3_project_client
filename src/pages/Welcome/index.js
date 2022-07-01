@@ -50,7 +50,7 @@ function Welcome() {
             <div>
               <p className={styles.help}>If you've never played before or want a refresher on how to play then click the Help button.</p>
 
-              <button className={styles.btn}
+              <button data-testid="help"  className={styles.btn}
               onClick={ ()=> {
               setOpenModal(true)
               }}>

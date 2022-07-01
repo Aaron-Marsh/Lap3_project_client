@@ -29,7 +29,7 @@ function CreateUser() {
             <form className={styles.form} onSubmit={handleFormSubmit}>
                 
                 <label htmlFor='username'>Enter a Username</label>
-                <input className={styles.createUser} id='username' 
+                <input data-testid="nameInput"  className={styles.createUser} id='username' 
                 type='text' onChange={handleInput} value={userInput}></input>
                 
                 <input className={styles.submit} type='submit' value={'Let\'s Go!'}/>
