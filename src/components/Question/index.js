@@ -35,7 +35,7 @@ const stringMap = {
 socket.on('ready', (data) => {
     questionData = data;
     for (let i = 0; i < questionData.questions.length; i++) {
-        questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;|&ldquo|&rdquo;|&#039;|&amp;/g, function(matched){
+        questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;|&ldquo;|&rdquo;|&#039;|&amp;/g, function(matched){
             return stringMap[matched]
         })
         questionData.questions[i].incorrect_answers[0] = questionData.questions[i].incorrect_answers[0].replace(/&quot;|&#039;/g, function(matched){
@@ -126,7 +126,6 @@ const Question = () => {
                 }
                 document.getElementById('question').style.display = 'none'
                 document.getElementById('all-options').style.visibility = 'hidden'
-                console.log(score)
                 socket.emit('getPlayersData', {questionScore: score})
                 if (firstQuestionHappened) {
                     questionData.questions.shift();
@@ -167,14 +166,12 @@ const Question = () => {
             if (e.target.value === questionData.questions[0].correct_answer) {
                 let elapsedTime = Date.now() - startTime;
                 let currentScore = 10000-elapsedTime;
-                console.log('correct')
                 document.getElementById('question-score').textContent = `+${currentScore}`
                 document.getElementById('question-score').style.color = 'green'
                 document.getElementById('message').textContent = 'Correct!'
                 setScore(currentScore);
                 socket.emit('getPlayersData', {questionScore: currentScore});
             } else {
-                console.log('incorrect')
                 document.getElementById('question-score').textContent = `+0`
                 document.getElementById('question-score').style.color = 'red'
                 document.getElementById('message').textContent = `Incorrect! The answer was ${questionData.questions[0].correct_answer}`
