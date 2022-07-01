@@ -183,7 +183,9 @@ const Question = () => {
                     setQuestion(questionData.questions[0].question) //questionchange
                     
                     let options = questionData.questions[0].incorrect_answers //questionchange
-                    options.push(questionData.questions[0].correct_answer) //questionchange
+                    if (questionData.questions[0].incorrect_answers.length === 3){
+                        options.push(questionData.questions[0].correct_answer) //questionchange
+                    }
                     options = options.sort(() => Math.random() - 0.5)
                     setOptions(options)
                     document.getElementById('question').style.display = ''
