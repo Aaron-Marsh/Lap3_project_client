@@ -1,13 +1,13 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+
 
 import { Leaderboard } from '../../components'
 import styles from './index.module.css'
 
 function Leaderboards() {
-  let navigate = useNavigate();
+  
     const routeChange = () => {
-        navigate('/');
+      window.location.href="https://about-time.netlify.app/"
     }
 
   return (
