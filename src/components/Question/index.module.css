@@ -86,4 +86,25 @@ input {
     min-height: 31rem;
 }
 
+.hostButton {
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--main-warning);
+    color: var(--main-background);
+    font-family: var(--heading-font);
+    padding: 15px;
+    margin: auto;
+    position:relative;
+    top:35vh;
+    left:0%;
+    
+}
+
+.hostButton:hover {
+    animation: hoverShake 0.20s linear 3;
+    background-color: var(--main-warning);
+    color: #fffcf9
+}
+
 

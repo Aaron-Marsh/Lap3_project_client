@@ -212,6 +212,10 @@ const Question = () => {
           e.preventDefault();
         navigate('/leaderboards');
       }
+
+      const onHostClick = e => {
+          host = true;
+      }
            
         return (
             <>
@@ -219,8 +223,13 @@ const Question = () => {
                 <Setup start={startQuiz}/>
             </div>
             <div id="not-host-message"style={{display: isHost ? 'none':''}}>
+
                 <NotHostMessage />
+<button onClick={onHostClick} className={styles.hostButton}>Make Me the Host!</button>
+                
+                
             </div>
+          
 
         <div id="whole-page" style={{display:'none'}}>
         <div id="quiz-section" className={styles.quizSection}>
