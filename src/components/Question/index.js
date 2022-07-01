@@ -26,13 +26,16 @@ let questionData={questions:[{category:'blank', question: 'question', incorrect_
 
 const stringMap = {
     '&quot;': '"',
-    '&#039;': '\''
+    '&ldquo;':'"',
+    '&rdquo;':'"',
+    '&#039;': '\'',
+    '&amp;':'&'
 }
 
 socket.on('ready', (data) => {
     questionData = data;
     for (let i = 0; i < questionData.questions.length; i++) {
-        questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;|&#039;/g, function(matched){
+        questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;|&ldquo|&rdquo;|&#039;|&amp;/g, function(matched){
             return stringMap[matched]
         })
         questionData.questions[i].incorrect_answers[0] = questionData.questions[i].incorrect_answers[0].replace(/&quot;|&#039;/g, function(matched){
