@@ -1,9 +1,7 @@
 
-// import { useSelect } from '@mui/base';
 import react, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
 import NotHostMessage from '../NotHostMessage'
 import Setup from '../../pages/Setup'
@@ -12,7 +10,6 @@ import Congratulations from '../Congratulations';
 import styles from './index.module.css';
 import { io } from 'socket.io-client';
 const socket = io('https://lap3quizzer.herokuapp.com');
-// const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Admin'}});
 
 let playing = false;
 let firstQuestionHappened = false; 
@@ -23,16 +20,10 @@ socket.on('hostStatus', (data) => {
         host = true
     }
 })
-// https://lap3quizzer.herokuapp.com
-// 'http://localhost:4000/'
-
-// io({query: { name: 'Sally'}})
 
 // fake data for first run
 let questionData={questions:[{category:'blank', question: 'question', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'}]}; // questionchange
 
-
-// socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 10})
 const stringMap = {
     '&quot;': '"',
     '&#039;': '\''
@@ -40,10 +31,7 @@ const stringMap = {
 
 socket.on('ready', (data) => {
     questionData = data;
-    console.log(questionData);
     for (let i = 0; i < questionData.questions.length; i++) {
-        // questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;/g, '"')
-        // questionData.questions[i].question = questionData.questions[i].question.replace(/&#039;/g, '\'')
         questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;|&#039;/g, function(matched){
             return stringMap[matched]
         })
@@ -65,41 +53,25 @@ socket.on('ready', (data) => {
     document.getElementById('whole-page').style.display=''
     playing = true
 })
+
 socket.on('noQuestionsLeft', () => {
     document.getElementById('quiz-section').style.display='none';
     document.getElementById('end-message').style.display='';
-}
-)
+})
+
 let scores = [{id:1, name:'user',score:0}];
 socket.on('scoreBoard', (data)=> {
     scores = data;
-    console.log(scores)
 })
 
 const Question = () => {
-
-   
-    
-    
-    // useEffect( () => {
-        //     socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 7})
-        // },[]
-        // )
-        
-        
         const [score, setScore] = useState(0);
         const [question, setQuestion] = useState('Question')
         const [options, setOptions] = useState(['option 1', 'option 2', 'option 3', 'option 4']);
         const [startTime, setStartTime] = useState(0);
         const [answered, setAnswered] = useState(false);
         const [questionNumber, setQuestionNumber] = useState(0)
-        const [scoreBoard, setScoreBoard] = useState(scores)
         const [isHost, setIsHost] = useState(false);
-
-        
-        useEffect(() => {
-            setScoreBoard(scores)
-        },[scores])
 
         useEffect(()=> {
             setIsHost(host)
@@ -138,18 +110,6 @@ const Question = () => {
             return () => clearInterval(int);
         }, []);
 
-        
-
-        // useEffect(() => {
-            //     setQuestions(questionData)
-            //     let options = questionData.incorrect_answers
-            //     options.push(questionData.correct_answer)
-            //     options = options.sort(() => Math.random() - 0.5)
-            //     setOptions(options)
-            //     setStartTime(Date.now())
-            
-            // },[questionData])
-
             const endQuestion = () => {
                 if (answered) {
                     setAnswered(false)
@@ -167,15 +127,10 @@ const Question = () => {
                 socket.emit('getPlayersData', {questionScore: score})
                 if (firstQuestionHappened) {
                     questionData.questions.shift();
-                } else {
-                    // socket.emit('getPlayersData', {questionScore: 0});
                 }
             }
             
             const newQuestion = () => {
-                // e.preventDefault()
-                // thisQuestion = questionData.
-                // console.log(questionData)
                 firstQuestionHappened = true
                 let questionsRemaining = questionData.questions.length
                 if (questionsRemaining != 0) {
@@ -223,7 +178,6 @@ const Question = () => {
                 setScore(0);
                 socket.emit('getPlayersData', {questionScore: score});
             }
-            // console.log(elapsedTime);
             document.getElementById('all-options').style.visibility='hidden';
             document.getElementById('question').style.display='none';
             setAnswered(true);
@@ -252,22 +206,13 @@ const Question = () => {
 
       const navigate = useNavigate();
       const onHomeClick = e => {
-        e.preventDefault();
-        navigate('/');
-        // setValues(validate(values));
+        window.location.href="https://about-time.netlify.app/"
       };
       const onLeaderboardsClick = e => {
           e.preventDefault();
         navigate('/leaderboards');
       }
-      
-        
-        // useEffect(() => {
-            //     socket.on('noQuestionsLeft', (data) => {
-                //         console.log('data'+data.score)
-                //     })
-                // })
-                
+           
         return (
             <>
             <div id="setup"style={{display: isHost ? '':'none'}}>
@@ -278,16 +223,13 @@ const Question = () => {
             </div>
 
         <div id="whole-page" style={{display:'none'}}>
-        {/* <h2 aria-label="question-title">Let's Play!</h2> */}
         <div id="quiz-section" className={styles.quizSection}>
         <Timer isPlaying={playing}/>
 
-            {/* <div> */}
         <h3 id="question-number" className={styles.major} style={{display:'none'}}>Question Number {questionNumber}</h3>
         <h3 id="question" className={styles.major} style={{display:'none'}}>{question}</h3>
         <h3 id="question-score" className={styles.score}></h3>
         <h3 id='message' className={styles.major}>Get Ready, the Game is starting Soon!</h3>
-            {/* </div> */}
 
         <form id='all-options' style={{visibility:'hidden'}}>
             <div>
@@ -299,10 +241,8 @@ const Question = () => {
             <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[3] || 'option'}></input>
             </div>
         </form>
-        {/* <button onClick={newQuestion}>New Question</button> */}
-        {/* <p>{timer}</p>
-        <p>{score}</p> */}
         </div>
+
         <div id="end-message" style={{display:'none'}}>
         <Congratulations />
         <h3 className={styles.major}>You Have Finished The Quiz!</h3>
