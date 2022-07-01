@@ -43,6 +43,12 @@ describe('Question', () => {
   });
 
 
+  test('its about time to exsist!', () => {
+screen.getByTestId('redobutton', {
+      name: /let's go again/i
+    })
+    // expect(Btn).toBeInTheDocument();
+  });
 
 
   test('home button exsist!', () => {
