@@ -1,9 +1,7 @@
 
-// import { useSelect } from '@mui/base';
 import react, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import useAxios from '../../hooks/useAxios';
 import Timer from '../Timer'
 import NotHostMessage from '../NotHostMessage'
 import Setup from '../../pages/Setup'
@@ -12,7 +10,6 @@ import Congratulations from '../Congratulations';
 import styles from './index.module.css';
 import { io } from 'socket.io-client';
 const socket = io('https://lap3quizzer.herokuapp.com');
-// const socket = io('https://lap3quizzer.herokuapp.com',{query:{name:'Admin'}});
 
 let playing = false;
 let firstQuestionHappened = false; 
@@ -23,16 +20,10 @@ socket.on('hostStatus', (data) => {
         host = true
     }
 })
-// https://lap3quizzer.herokuapp.com
-// 'http://localhost:4000/'
-
-// io({query: { name: 'Sally'}})
 
 // fake data for first run
 let questionData={questions:[{category:'blank', question: 'question', incorrect_answers:['option 1', 'option 2', 'option 3'], correct_answer:'option 4'}]}; // questionchange
 
-
-// socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 10})
 const stringMap = {
     '&quot;': '"',
     '&#039;': '\''
@@ -40,10 +31,7 @@ const stringMap = {
 
 socket.on('ready', (data) => {
     questionData = data;
-    console.log(questionData);
     for (let i = 0; i < questionData.questions.length; i++) {
-        // questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;/g, '"')
-        // questionData.questions[i].question = questionData.questions[i].question.replace(/&#039;/g, '\'')
         questionData.questions[i].question = questionData.questions[i].question.replace(/&quot;|&#039;/g, function(matched){
             return stringMap[matched]
         })
@@ -65,32 +53,25 @@ socket.on('ready', (data) => {
     document.getElementById('whole-page').style.display=''
     playing = true
 })
+
 socket.on('noQuestionsLeft', () => {
     document.getElementById('quiz-section').style.display='none';
     document.getElementById('end-message').style.display='';
-}
-)
+})
+
 let scores = [{id:1, name:'user',score:0}];
 socket.on('scoreBoard', (data)=> {
     scores = data;
-    console.log(scores)
 })
 
 const Question = () => {
-
         const [score, setScore] = useState(0);
         const [question, setQuestion] = useState('Question')
         const [options, setOptions] = useState(['option 1', 'option 2', 'option 3', 'option 4']);
         const [startTime, setStartTime] = useState(0);
         const [answered, setAnswered] = useState(false);
         const [questionNumber, setQuestionNumber] = useState(0)
-        const [scoreBoard, setScoreBoard] = useState(scores)
         const [isHost, setIsHost] = useState(false);
-
-        
-        useEffect(() => {
-            setScoreBoard(scores)
-        },[scores])
 
         useEffect(()=> {
             setIsHost(host)
@@ -231,9 +212,7 @@ const Question = () => {
           e.preventDefault();
         navigate('/leaderboards');
       }
-      
-
-                
+           
         return (
             <>
             <div id="setup"style={{display: isHost ? '':'none'}}>
