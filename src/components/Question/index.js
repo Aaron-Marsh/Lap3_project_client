@@ -183,7 +183,9 @@ const Question = () => {
                     setQuestion(questionData.questions[0].question) //questionchange
                     
                     let options = questionData.questions[0].incorrect_answers //questionchange
-                    options.push(questionData.questions[0].correct_answer) //questionchange
+                    if (questionData.questions[0].incorrect_answers.length === 3){
+                        options.push(questionData.questions[0].correct_answer) //questionchange
+                    }
                     options = options.sort(() => Math.random() - 0.5)
                     setOptions(options)
                     document.getElementById('question').style.display = ''
@@ -305,8 +307,10 @@ const Question = () => {
         <Congratulations />
         <h3 className={styles.major}>You Have Finished The Quiz!</h3>
         <h3 className={styles.major}>It's About Time!</h3>
-        <button data-testid="redobutton"  onClick={onHomeClick} className={styles.btn}>Let's Go Again</button>
-        <button onClick={onLeaderboardsClick} className={styles.btn}>All Time Leaderboards</button>
+
+        <button aria-label="home-button" onClick={onHomeClick} className={styles.btn}>Let's Go Again</button>
+        <button aria-label="leaderboard-button" onClick={onLeaderboardsClick} className={styles.btn}>All Time Leaderboards</button>
+
         </div>
         <LeaderboardProps data={scores} />
         <p className={styles.minor}>You are playing as {username ? username:'Guest'}</p>
