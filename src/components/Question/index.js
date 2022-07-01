@@ -78,15 +78,6 @@ socket.on('scoreBoard', (data)=> {
 
 const Question = () => {
 
-   
-    
-    
-    // useEffect( () => {
-        //     socket.emit('start', {category: 11, difficulty: 'medium', questionsAmount: 7})
-        // },[]
-        // )
-        
-        
         const [score, setScore] = useState(0);
         const [question, setQuestion] = useState('Question')
         const [options, setOptions] = useState(['option 1', 'option 2', 'option 3', 'option 4']);
@@ -138,18 +129,6 @@ const Question = () => {
             return () => clearInterval(int);
         }, []);
 
-        
-
-        // useEffect(() => {
-            //     setQuestions(questionData)
-            //     let options = questionData.incorrect_answers
-            //     options.push(questionData.correct_answer)
-            //     options = options.sort(() => Math.random() - 0.5)
-            //     setOptions(options)
-            //     setStartTime(Date.now())
-            
-            // },[questionData])
-
             const endQuestion = () => {
                 if (answered) {
                     setAnswered(false)
@@ -167,15 +146,10 @@ const Question = () => {
                 socket.emit('getPlayersData', {questionScore: score})
                 if (firstQuestionHappened) {
                     questionData.questions.shift();
-                } else {
-                    // socket.emit('getPlayersData', {questionScore: 0});
                 }
             }
             
             const newQuestion = () => {
-                // e.preventDefault()
-                // thisQuestion = questionData.
-                // console.log(questionData)
                 firstQuestionHappened = true
                 let questionsRemaining = questionData.questions.length
                 if (questionsRemaining != 0) {
@@ -223,7 +197,6 @@ const Question = () => {
                 setScore(0);
                 socket.emit('getPlayersData', {questionScore: score});
             }
-            // console.log(elapsedTime);
             document.getElementById('all-options').style.visibility='hidden';
             document.getElementById('question').style.display='none';
             setAnswered(true);
@@ -252,21 +225,14 @@ const Question = () => {
 
       const navigate = useNavigate();
       const onHomeClick = e => {
-        e.preventDefault();
-        navigate('/');
-        // setValues(validate(values));
+        window.location.href="https://about-time.netlify.app/"
       };
       const onLeaderboardsClick = e => {
           e.preventDefault();
         navigate('/leaderboards');
       }
       
-        
-        // useEffect(() => {
-            //     socket.on('noQuestionsLeft', (data) => {
-                //         console.log('data'+data.score)
-                //     })
-                // })
+
                 
         return (
             <>
@@ -278,16 +244,13 @@ const Question = () => {
             </div>
 
         <div id="whole-page" style={{display:'none'}}>
-        {/* <h2 aria-label="question-title">Let's Play!</h2> */}
         <div id="quiz-section" className={styles.quizSection}>
         <Timer isPlaying={playing}/>
 
-            {/* <div> */}
         <h3 id="question-number" className={styles.major} style={{display:'none'}}>Question Number {questionNumber}</h3>
         <h3 id="question" className={styles.major} style={{display:'none'}}>{question}</h3>
         <h3 id="question-score" className={styles.score}></h3>
         <h3 id='message' className={styles.major}>Get Ready, the Game is starting Soon!</h3>
-            {/* </div> */}
 
         <form id='all-options' style={{visibility:'hidden'}}>
             <div>
@@ -299,10 +262,8 @@ const Question = () => {
             <input type="submit" onClick={answerQuestion} className={styles.optionBtn} value={options[3] || 'option'}></input>
             </div>
         </form>
-        {/* <button onClick={newQuestion}>New Question</button> */}
-        {/* <p>{timer}</p>
-        <p>{score}</p> */}
         </div>
+
         <div id="end-message" style={{display:'none'}}>
         <Congratulations />
         <h3 className={styles.major}>You Have Finished The Quiz!</h3>
