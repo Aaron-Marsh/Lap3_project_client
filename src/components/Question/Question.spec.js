@@ -3,8 +3,9 @@ import { screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
 import { BrowserRouter as Router } from 'react-router-dom';
+import * as router from 'react-router';
 
-describe('CreateQuiz', () => {
+describe('Question', () => {
   beforeEach(() => {
     render(
       <Provider store={store}>
@@ -20,20 +21,14 @@ describe('CreateQuiz', () => {
     expect(Para1).toBeInTheDocument();
   });
 
-  //   test('btn to exsist', () => {
-  //     let btn =screen.getByRole('button', {
-  //         name: /new question/i
-  //       })
-  //     expect(btn).toBeInTheDocument();
-  //   });
 
-  test("get ready, the game is starting soon", () => {
+  test('get ready, the game is starting soon', () => {
     let Para2 = screen.getByText(/get ready, the game is starting soon!/i);
     expect(Para2).toBeInTheDocument();
   });
 
   test('you have finished the quiz!', () => {
-    let H = screen.getByText( /you have finished the quiz!/i);
+    let H = screen.getByText(/you have finished the quiz!/i);
     expect(H).toBeInTheDocument();
   });
 
@@ -49,13 +44,20 @@ describe('CreateQuiz', () => {
 
 
 
-  test('its about time to exsist!', () => {
-screen.getByRole('button', {
-      name: /let's go again/i
-    })
-    // expect(Btn).toBeInTheDocument();
+
+  test('home button exsist!', () => {
+    screen.getByLabelText('home-button', {
+      name: /let's go again/i,
+    });
   });
 
+  test('leaderboard buttonexsist!', () => {
+    screen.getByLabelText('leaderboard-button', {
+     name: /leaderboard\-button/i
+    });
 
-
+    test('its about time to exsist!', () => {
+      screen.getByText(/you are playing as \{username \? username:'guest'\}/i);
+    });
+  });
 });
