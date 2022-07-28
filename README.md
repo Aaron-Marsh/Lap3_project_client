@@ -13,6 +13,11 @@
 </div>
 
 ## About 💾
+
+About Time is a live, multiplayer quiz game that uses questions from the Open Trivia Database. In order to play you can visit the Homepage of the deployed client and click on the Help Button for instructions.
+
+This is the frontend client for About Time, which interacts with the backend kept in a separate repository available [here](https://github.com/buscaroli/Lap3-Project-Backend).
+
 ---
 ### Installation
 
